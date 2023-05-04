@@ -1,0 +1,626 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BB26C5752A03DEA500F1138F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB26C5742A03DEA500F1138F /* AppDelegate.swift */; };
+		BB26C5772A03DEA500F1138F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB26C5762A03DEA500F1138F /* SceneDelegate.swift */; };
+		BB26C5792A03DEA500F1138F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB26C5782A03DEA500F1138F /* ViewController.swift */; };
+		BB26C57C2A03DEA500F1138F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB26C57A2A03DEA500F1138F /* Main.storyboard */; };
+		BB26C57F2A03DEA500F1138F /* ArabamCaseApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BB26C57D2A03DEA500F1138F /* ArabamCaseApp.xcdatamodeld */; };
+		BB26C5812A03DEA700F1138F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB26C5802A03DEA700F1138F /* Assets.xcassets */; };
+		BB26C5842A03DEA700F1138F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB26C5822A03DEA700F1138F /* LaunchScreen.storyboard */; };
+		BB26C58F2A03DEA700F1138F /* ArabamCaseAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB26C58E2A03DEA700F1138F /* ArabamCaseAppTests.swift */; };
+		BB26C5992A03DEA700F1138F /* ArabamCaseAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB26C5982A03DEA700F1138F /* ArabamCaseAppUITests.swift */; };
+		BB26C59B2A03DEA700F1138F /* ArabamCaseAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB26C59A2A03DEA700F1138F /* ArabamCaseAppUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BB26C58B2A03DEA700F1138F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BB26C5692A03DEA500F1138F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BB26C5702A03DEA500F1138F;
+			remoteInfo = ArabamCaseApp;
+		};
+		BB26C5952A03DEA700F1138F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BB26C5692A03DEA500F1138F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BB26C5702A03DEA500F1138F;
+			remoteInfo = ArabamCaseApp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		BB26C5712A03DEA500F1138F /* ArabamCaseApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ArabamCaseApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BB26C5742A03DEA500F1138F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		BB26C5762A03DEA500F1138F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		BB26C5782A03DEA500F1138F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BB26C57B2A03DEA500F1138F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BB26C57E2A03DEA500F1138F /* ArabamCaseApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ArabamCaseApp.xcdatamodel; sourceTree = "<group>"; };
+		BB26C5802A03DEA700F1138F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BB26C5832A03DEA700F1138F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BB26C5852A03DEA700F1138F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BB26C58A2A03DEA700F1138F /* ArabamCaseAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ArabamCaseAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BB26C58E2A03DEA700F1138F /* ArabamCaseAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArabamCaseAppTests.swift; sourceTree = "<group>"; };
+		BB26C5942A03DEA700F1138F /* ArabamCaseAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ArabamCaseAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BB26C5982A03DEA700F1138F /* ArabamCaseAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArabamCaseAppUITests.swift; sourceTree = "<group>"; };
+		BB26C59A2A03DEA700F1138F /* ArabamCaseAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArabamCaseAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BB26C56E2A03DEA500F1138F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BB26C5872A03DEA700F1138F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BB26C5912A03DEA700F1138F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BB26C5682A03DEA500F1138F = {
+			isa = PBXGroup;
+			children = (
+				BB26C5732A03DEA500F1138F /* ArabamCaseApp */,
+				BB26C58D2A03DEA700F1138F /* ArabamCaseAppTests */,
+				BB26C5972A03DEA700F1138F /* ArabamCaseAppUITests */,
+				BB26C5722A03DEA500F1138F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BB26C5722A03DEA500F1138F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BB26C5712A03DEA500F1138F /* ArabamCaseApp.app */,
+				BB26C58A2A03DEA700F1138F /* ArabamCaseAppTests.xctest */,
+				BB26C5942A03DEA700F1138F /* ArabamCaseAppUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BB26C5732A03DEA500F1138F /* ArabamCaseApp */ = {
+			isa = PBXGroup;
+			children = (
+				BB26C5742A03DEA500F1138F /* AppDelegate.swift */,
+				BB26C5762A03DEA500F1138F /* SceneDelegate.swift */,
+				BB26C5782A03DEA500F1138F /* ViewController.swift */,
+				BB26C57A2A03DEA500F1138F /* Main.storyboard */,
+				BB26C5802A03DEA700F1138F /* Assets.xcassets */,
+				BB26C5822A03DEA700F1138F /* LaunchScreen.storyboard */,
+				BB26C5852A03DEA700F1138F /* Info.plist */,
+				BB26C57D2A03DEA500F1138F /* ArabamCaseApp.xcdatamodeld */,
+			);
+			path = ArabamCaseApp;
+			sourceTree = "<group>";
+		};
+		BB26C58D2A03DEA700F1138F /* ArabamCaseAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				BB26C58E2A03DEA700F1138F /* ArabamCaseAppTests.swift */,
+			);
+			path = ArabamCaseAppTests;
+			sourceTree = "<group>";
+		};
+		BB26C5972A03DEA700F1138F /* ArabamCaseAppUITests */ = {
+			isa = PBXGroup;
+			children = (
+				BB26C5982A03DEA700F1138F /* ArabamCaseAppUITests.swift */,
+				BB26C59A2A03DEA700F1138F /* ArabamCaseAppUITestsLaunchTests.swift */,
+			);
+			path = ArabamCaseAppUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BB26C5702A03DEA500F1138F /* ArabamCaseApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BB26C59E2A03DEA700F1138F /* Build configuration list for PBXNativeTarget "ArabamCaseApp" */;
+			buildPhases = (
+				BB26C56D2A03DEA500F1138F /* Sources */,
+				BB26C56E2A03DEA500F1138F /* Frameworks */,
+				BB26C56F2A03DEA500F1138F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ArabamCaseApp;
+			productName = ArabamCaseApp;
+			productReference = BB26C5712A03DEA500F1138F /* ArabamCaseApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BB26C5892A03DEA700F1138F /* ArabamCaseAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BB26C5A12A03DEA700F1138F /* Build configuration list for PBXNativeTarget "ArabamCaseAppTests" */;
+			buildPhases = (
+				BB26C5862A03DEA700F1138F /* Sources */,
+				BB26C5872A03DEA700F1138F /* Frameworks */,
+				BB26C5882A03DEA700F1138F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BB26C58C2A03DEA700F1138F /* PBXTargetDependency */,
+			);
+			name = ArabamCaseAppTests;
+			productName = ArabamCaseAppTests;
+			productReference = BB26C58A2A03DEA700F1138F /* ArabamCaseAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		BB26C5932A03DEA700F1138F /* ArabamCaseAppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BB26C5A42A03DEA700F1138F /* Build configuration list for PBXNativeTarget "ArabamCaseAppUITests" */;
+			buildPhases = (
+				BB26C5902A03DEA700F1138F /* Sources */,
+				BB26C5912A03DEA700F1138F /* Frameworks */,
+				BB26C5922A03DEA700F1138F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BB26C5962A03DEA700F1138F /* PBXTargetDependency */,
+			);
+			name = ArabamCaseAppUITests;
+			productName = ArabamCaseAppUITests;
+			productReference = BB26C5942A03DEA700F1138F /* ArabamCaseAppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BB26C5692A03DEA500F1138F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1430;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					BB26C5702A03DEA500F1138F = {
+						CreatedOnToolsVersion = 14.3;
+					};
+					BB26C5892A03DEA700F1138F = {
+						CreatedOnToolsVersion = 14.3;
+						TestTargetID = BB26C5702A03DEA500F1138F;
+					};
+					BB26C5932A03DEA700F1138F = {
+						CreatedOnToolsVersion = 14.3;
+						TestTargetID = BB26C5702A03DEA500F1138F;
+					};
+				};
+			};
+			buildConfigurationList = BB26C56C2A03DEA500F1138F /* Build configuration list for PBXProject "ArabamCaseApp" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BB26C5682A03DEA500F1138F;
+			productRefGroup = BB26C5722A03DEA500F1138F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BB26C5702A03DEA500F1138F /* ArabamCaseApp */,
+				BB26C5892A03DEA700F1138F /* ArabamCaseAppTests */,
+				BB26C5932A03DEA700F1138F /* ArabamCaseAppUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BB26C56F2A03DEA500F1138F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BB26C5842A03DEA700F1138F /* LaunchScreen.storyboard in Resources */,
+				BB26C5812A03DEA700F1138F /* Assets.xcassets in Resources */,
+				BB26C57C2A03DEA500F1138F /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BB26C5882A03DEA700F1138F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BB26C5922A03DEA700F1138F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BB26C56D2A03DEA500F1138F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BB26C5792A03DEA500F1138F /* ViewController.swift in Sources */,
+				BB26C5752A03DEA500F1138F /* AppDelegate.swift in Sources */,
+				BB26C5772A03DEA500F1138F /* SceneDelegate.swift in Sources */,
+				BB26C57F2A03DEA500F1138F /* ArabamCaseApp.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BB26C5862A03DEA700F1138F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BB26C58F2A03DEA700F1138F /* ArabamCaseAppTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BB26C5902A03DEA700F1138F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BB26C59B2A03DEA700F1138F /* ArabamCaseAppUITestsLaunchTests.swift in Sources */,
+				BB26C5992A03DEA700F1138F /* ArabamCaseAppUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BB26C58C2A03DEA700F1138F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BB26C5702A03DEA500F1138F /* ArabamCaseApp */;
+			targetProxy = BB26C58B2A03DEA700F1138F /* PBXContainerItemProxy */;
+		};
+		BB26C5962A03DEA700F1138F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BB26C5702A03DEA500F1138F /* ArabamCaseApp */;
+			targetProxy = BB26C5952A03DEA700F1138F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		BB26C57A2A03DEA500F1138F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BB26C57B2A03DEA500F1138F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		BB26C5822A03DEA700F1138F /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BB26C5832A03DEA700F1138F /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BB26C59C2A03DEA700F1138F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		BB26C59D2A03DEA700F1138F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BB26C59F2A03DEA700F1138F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7WTYA7M3KW;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ArabamCaseApp/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yusufcanbircan.ArabamCaseApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BB26C5A02A03DEA700F1138F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7WTYA7M3KW;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ArabamCaseApp/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yusufcanbircan.ArabamCaseApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		BB26C5A22A03DEA700F1138F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7WTYA7M3KW;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yusufcanbircan.ArabamCaseAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ArabamCaseApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ArabamCaseApp";
+			};
+			name = Debug;
+		};
+		BB26C5A32A03DEA700F1138F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7WTYA7M3KW;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yusufcanbircan.ArabamCaseAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ArabamCaseApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ArabamCaseApp";
+			};
+			name = Release;
+		};
+		BB26C5A52A03DEA700F1138F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7WTYA7M3KW;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yusufcanbircan.ArabamCaseAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = ArabamCaseApp;
+			};
+			name = Debug;
+		};
+		BB26C5A62A03DEA700F1138F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7WTYA7M3KW;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yusufcanbircan.ArabamCaseAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = ArabamCaseApp;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BB26C56C2A03DEA500F1138F /* Build configuration list for PBXProject "ArabamCaseApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BB26C59C2A03DEA700F1138F /* Debug */,
+				BB26C59D2A03DEA700F1138F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BB26C59E2A03DEA700F1138F /* Build configuration list for PBXNativeTarget "ArabamCaseApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BB26C59F2A03DEA700F1138F /* Debug */,
+				BB26C5A02A03DEA700F1138F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BB26C5A12A03DEA700F1138F /* Build configuration list for PBXNativeTarget "ArabamCaseAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BB26C5A22A03DEA700F1138F /* Debug */,
+				BB26C5A32A03DEA700F1138F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BB26C5A42A03DEA700F1138F /* Build configuration list for PBXNativeTarget "ArabamCaseAppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BB26C5A52A03DEA700F1138F /* Debug */,
+				BB26C5A62A03DEA700F1138F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		BB26C57D2A03DEA500F1138F /* ArabamCaseApp.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				BB26C57E2A03DEA500F1138F /* ArabamCaseApp.xcdatamodel */,
+			);
+			currentVersion = BB26C57E2A03DEA500F1138F /* ArabamCaseApp.xcdatamodel */;
+			path = ArabamCaseApp.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = BB26C5692A03DEA500F1138F /* Project object */;
+}
