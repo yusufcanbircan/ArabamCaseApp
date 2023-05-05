@@ -9,14 +9,14 @@ import Foundation
 
 // MARK: - AdvertListingElement
 struct AdvertListingResponse: Codable {
-    let id: Int
+    let id: Int?
     let title: String?
     let location: Location?
     let category: Category?
     let modelName: String?
-    let price: Int
+    let price: Int?
     let priceFormatted: String?
-    let date: DateEnum
+    let date: DateEnum?
     let dateFormatted: DateFormatted?
     let photo: String?
     let properties: [Property]?
@@ -24,7 +24,7 @@ struct AdvertListingResponse: Codable {
 
 // MARK: - Category
 struct Category: Codable {
-    let id: Int
+    let id: Int?
     let name: String?
 }
 

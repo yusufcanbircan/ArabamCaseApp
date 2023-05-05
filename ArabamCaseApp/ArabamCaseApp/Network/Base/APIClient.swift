@@ -24,16 +24,17 @@ class APIClient: APIClientProtocol {
         request: APIRequest,
         completion: @escaping (Result<T, Error>) -> Void
     ) {
-        var urlComponents = URLComponents(string: request.baseURL)
-        urlComponents?.path = request.path.rawValue
-        urlComponents?.queryItems = request.urlQueryItems
         
-        guard let url = urlComponents?.url else { return }
+        var urlComponents = URLComponents()
+        urlComponents.host = request.host
+        urlComponents.scheme = request.scheme
+        urlComponents.path = request.path
+        urlComponents.queryItems = request.urlQueryItems
+        
+        guard let url = urlComponents.url else { return }
         
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = request.method.rawValue
-        
-        print(url)
         
         session.dataTask(with: urlRequest) { data, _, error in
             guard let data = data, error == nil else {

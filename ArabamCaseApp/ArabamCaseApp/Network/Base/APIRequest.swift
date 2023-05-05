@@ -8,17 +8,18 @@
 import Foundation
 
 @frozen enum UrlPath: String {
-    case detail = "api/v1/detail"
-    case listing = "api/v1/listing"
+    case detail = "/api/v1/detail"
+    case listing = "/api/v1/listing"
 }
 
 struct APIConstants {
-    static let baseUrl: String = "http://sandbox.arabamd.com/"
+    static let baseUrl: String = "sandbox.arabamd.com"
 }
 
 protocol APIRequest {
-    var baseURL: String { get }
-    var path: UrlPath { get }
+    var scheme: String { get }
+    var host: String { get }
+    var path: String { get }
     var method: HTTPMethod { get }
     var header: [String: String]? { get }
     var queryItems: [String: Any?]? { get }
@@ -26,8 +27,12 @@ protocol APIRequest {
 }
 
 extension APIRequest {
-    var baseURL: String {
-        return APIConstants.baseUrl
+    var scheme: String {
+        "https"
+    }
+    
+    var host: String {
+        APIConstants.baseUrl
     }
     
     var header: [String: String]? {
@@ -38,8 +43,8 @@ extension APIRequest {
         HTTPMethod.get
     }
     
-    var path: UrlPath {
-        UrlPath.listing
+    var path: String {
+        UrlPath.listing.rawValue
     }
     
     var queryItems: [String: Any?]? {

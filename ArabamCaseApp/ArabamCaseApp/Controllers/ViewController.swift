@@ -13,16 +13,16 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         
-        let request = AdvertRequest.listing(sort: 1, sortDirection: 0, take: 10)
-        print(request.path)
+        let request = AdvertRequest.listing(sort: 1, sortDirection: 0, take: 15)
         
-        var urlComponents = URLComponents(string: request.baseURL)
-        urlComponents?.path = request.path.rawValue
-        urlComponents?.queryItems = request.urlQueryItems
-        
-        guard let url = urlComponents?.url else { return }
-        
-        print(url)
+        AdvertListingService().fetchListingObjects(request: request) { result in
+            switch result {
+            case .success(let success):
+                print(success)
+            case .failure(let failure):
+                print(failure)
+            }
+        }
         
         
     }

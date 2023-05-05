@@ -13,12 +13,12 @@ enum AdvertRequest {
 }
 
 extension AdvertRequest: APIRequest {
-    var path: UrlPath {
+    var path: String {
         switch self {
         case .listing:
-            return UrlPath.listing
+            return UrlPath.listing.rawValue
         case .detail:
-            return UrlPath.detail
+            return UrlPath.detail.rawValue
         }
     }
     

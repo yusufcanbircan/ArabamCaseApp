@@ -9,13 +9,13 @@ import Foundation
 
 // MARK: - AdvertDetail
 struct AdvertDetailResponse: Decodable {
-    let id: Int
+    let id: Int?
     let title: String?
     let location: Location?
     let category: Category?
     let modelName: String?
-    let price: Int
-    let date: String
+    let price: Int?
+    let date: String?
     let priceFormatted, dateFormatted: String?
     let photos: [String]?
     let properties: [Property]?
@@ -25,7 +25,7 @@ struct AdvertDetailResponse: Decodable {
 
 // MARK: - UserInfo
 struct UserInfo: Decodable {
-    let id: Int
+    let id: Int?
     let nameSurname, phone, phoneFormatted: String?
 }
 
