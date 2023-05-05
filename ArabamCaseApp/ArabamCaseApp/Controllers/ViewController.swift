@@ -13,6 +13,17 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         
+        let request = AdvertRequest.listing(sort: 1, sortDirection: 0, take: 10)
+        print(request.path)
+        
+        var urlComponents = URLComponents(string: request.baseURL)
+        urlComponents?.path = request.path.rawValue
+        urlComponents?.queryItems = request.urlQueryItems
+        
+        guard let url = urlComponents?.url else { return }
+        
+        print(url)
+        
         
     }
 

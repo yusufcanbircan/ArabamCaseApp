@@ -27,7 +27,7 @@ protocol APIRequest {
 
 extension APIRequest {
     var baseURL: String {
-        APIConstants.baseUrl
+        return APIConstants.baseUrl
     }
     
     var header: [String: String]? {

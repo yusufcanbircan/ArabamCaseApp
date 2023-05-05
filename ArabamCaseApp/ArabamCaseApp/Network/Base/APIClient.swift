@@ -8,12 +8,12 @@
 import Foundation
 
 enum NetworkError: Error {
-    case failedToCreateRequest
+    case failedToDecodeData
     case failedToGetData
 }
 
 protocol APIClientProtocol {
-    func call<T: Decodable>(request: APIRequest, type: T.Type, completion: @escaping (Result<T, Error>) -> Void )
+    func call<T: Decodable>(request: APIRequest, completion: @escaping (Result<T, Error>) -> Void )
 }
 
 class APIClient: APIClientProtocol {
@@ -22,7 +22,6 @@ class APIClient: APIClientProtocol {
     
     func call<T: Decodable>(
         request: APIRequest,
-        type: T.Type,
         completion: @escaping (Result<T, Error>) -> Void
     ) {
         var urlComponents = URLComponents(string: request.baseURL)
@@ -34,18 +33,20 @@ class APIClient: APIClientProtocol {
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = request.method.rawValue
         
-        session.dataTask(with: urlRequest) { [weak self] data, _, error in
+        print(url)
+        
+        session.dataTask(with: urlRequest) { data, _, error in
             guard let data = data, error == nil else {
                 completion(.failure(NetworkError.failedToGetData))
                 return
             }
             
             do {
-                let result = try JSONDecoder().decode(type.self, from: data)
+                let result = try JSONDecoder().decode(T.self, from: data)
                 completion(.success(result))
             }
             catch {
-                completion(.failure(error))
+                completion(.failure(NetworkError.failedToDecodeData))
             }
             
         }.resume()
