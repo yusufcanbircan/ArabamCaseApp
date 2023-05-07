@@ -3,4 +3,238 @@
    uuid = "E607F64E-44B1-4322-B741-666CF3402231"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D76948A6-B6A6-474A-A921-FC173658FD42"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ArabamCaseApp/Network/Base/APIClient.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
+            landmarkName = "call(request:type:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "D76948A6-B6A6-474A-A921-FC173658FD42 - 2b4b9a559638bd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in ArabamCaseApp.APIClient.call&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Swift.Decodable&gt;(request: ArabamCaseApp.APIRequest, completion: (Swift.Result&lt;&#x3c4;_0_0, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "ArabamCaseApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yusufcanbircan/Documents/ArabamInternship/ArabamCaseApp/ArabamCaseApp/ArabamCaseApp/Network/Base/APIClient.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "48"
+                  endingLineNumber = "48"
+                  offsetFromSymbolStart = "728">
+               </Location>
+               <Location
+                  uuid = "D76948A6-B6A6-474A-A921-FC173658FD42 - 2b4b9a559638bd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in ArabamCaseApp.APIClient.call&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Swift.Decodable&gt;(request: ArabamCaseApp.APIRequest, completion: (Swift.Result&lt;&#x3c4;_0_0, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "ArabamCaseApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yusufcanbircan/Documents/ArabamInternship/ArabamCaseApp/ArabamCaseApp/ArabamCaseApp/Network/Base/APIClient.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "48"
+                  endingLineNumber = "48"
+                  offsetFromSymbolStart = "532">
+               </Location>
+               <Location
+                  uuid = "D76948A6-B6A6-474A-A921-FC173658FD42 - 491c1fba0d03ded0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in ArabamCaseApp.APIClient.call&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Swift.Decodable&gt;(request: ArabamCaseApp.APIRequest, type: &#x3c4;_0_0.Type, completion: (Swift.Result&lt;&#x3c4;_0_0, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "ArabamCaseApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yusufcanbircan/Documents/ArabamInternship/ArabamCaseApp/ArabamCaseApp/ArabamCaseApp/Network/Base/APIClient.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "49"
+                  endingLineNumber = "49"
+                  offsetFromSymbolStart = "560">
+               </Location>
+               <Location
+                  uuid = "D76948A6-B6A6-474A-A921-FC173658FD42 - 491c1fba0d03ded0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in ArabamCaseApp.APIClient.call&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Swift.Decodable&gt;(request: ArabamCaseApp.APIRequest, type: &#x3c4;_0_0.Type, completion: (Swift.Result&lt;&#x3c4;_0_0, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "ArabamCaseApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yusufcanbircan/Documents/ArabamInternship/ArabamCaseApp/ArabamCaseApp/ArabamCaseApp/Network/Base/APIClient.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "49"
+                  endingLineNumber = "49"
+                  offsetFromSymbolStart = "496">
+               </Location>
+               <Location
+                  uuid = "D76948A6-B6A6-474A-A921-FC173658FD42 - 491c1fba0d03df3d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in ArabamCaseApp.APIClient.call&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Swift.Decodable&gt;(request: ArabamCaseApp.APIRequest, type: &#x3c4;_0_0.Type, completion: (Swift.Result&lt;&#x3c4;_0_0, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "ArabamCaseApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yusufcanbircan/Documents/ArabamInternship/ArabamCaseApp/ArabamCaseApp/ArabamCaseApp/Network/Base/APIClient.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "52"
+                  endingLineNumber = "52"
+                  offsetFromSymbolStart = "1036">
+               </Location>
+               <Location
+                  uuid = "D76948A6-B6A6-474A-A921-FC173658FD42 - 4d75a96ecae00648"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in ArabamCaseApp.APIClient.call&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Swift.Decodable, &#x3c4;_0_0: Swift.Encodable&gt;(request: ArabamCaseApp.APIRequest, type: &#x3c4;_0_0.Type, completion: (Swift.Result&lt;&#x3c4;_0_0, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "ArabamCaseApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yusufcanbircan/Documents/ArabamInternship/ArabamCaseApp/ArabamCaseApp/ArabamCaseApp/Network/Base/APIClient.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "53"
+                  endingLineNumber = "53"
+                  offsetFromSymbolStart = "640">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E34F17EC-EB61-4B1D-9925-1A0DE86D6A06"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ArabamCaseApp/Network/Base/APIClient.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "call(request:type:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "E34F17EC-EB61-4B1D-9925-1A0DE86D6A06 - e7d0eecbe7d7e263"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ArabamCaseApp.APIClient.call&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Swift.Decodable&gt;(request: ArabamCaseApp.APIRequest, completion: (Swift.Result&lt;&#x3c4;_0_0, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "ArabamCaseApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yusufcanbircan/Documents/ArabamInternship/ArabamCaseApp/ArabamCaseApp/ArabamCaseApp/Network/Base/APIClient.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "53"
+                  endingLineNumber = "53"
+                  offsetFromSymbolStart = "2160">
+               </Location>
+               <Location
+                  uuid = "E34F17EC-EB61-4B1D-9925-1A0DE86D6A06 - 2b4b9a55963950"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in ArabamCaseApp.APIClient.call&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Swift.Decodable&gt;(request: ArabamCaseApp.APIRequest, completion: (Swift.Result&lt;&#x3c4;_0_0, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "ArabamCaseApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yusufcanbircan/Documents/ArabamInternship/ArabamCaseApp/ArabamCaseApp/ArabamCaseApp/Network/Base/APIClient.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "53"
+                  endingLineNumber = "53"
+                  offsetFromSymbolStart = "780">
+               </Location>
+               <Location
+                  uuid = "E34F17EC-EB61-4B1D-9925-1A0DE86D6A06 - 2b4b9a55963931"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in ArabamCaseApp.APIClient.call&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Swift.Decodable&gt;(request: ArabamCaseApp.APIRequest, completion: (Swift.Result&lt;&#x3c4;_0_0, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "ArabamCaseApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yusufcanbircan/Documents/ArabamInternship/ArabamCaseApp/ArabamCaseApp/ArabamCaseApp/Network/Base/APIClient.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "52"
+                  endingLineNumber = "52"
+                  offsetFromSymbolStart = "1004">
+               </Location>
+               <Location
+                  uuid = "E34F17EC-EB61-4B1D-9925-1A0DE86D6A06 - 491c1fba0d03df5c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in ArabamCaseApp.APIClient.call&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Swift.Decodable&gt;(request: ArabamCaseApp.APIRequest, type: &#x3c4;_0_0.Type, completion: (Swift.Result&lt;&#x3c4;_0_0, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "ArabamCaseApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yusufcanbircan/Documents/ArabamInternship/ArabamCaseApp/ArabamCaseApp/ArabamCaseApp/Network/Base/APIClient.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "53"
+                  endingLineNumber = "53"
+                  offsetFromSymbolStart = "1040">
+               </Location>
+               <Location
+                  uuid = "E34F17EC-EB61-4B1D-9925-1A0DE86D6A06 - 491c1fba0d03df5c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in ArabamCaseApp.APIClient.call&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Swift.Decodable&gt;(request: ArabamCaseApp.APIRequest, type: &#x3c4;_0_0.Type, completion: (Swift.Result&lt;&#x3c4;_0_0, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "ArabamCaseApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yusufcanbircan/Documents/ArabamInternship/ArabamCaseApp/ArabamCaseApp/ArabamCaseApp/Network/Base/APIClient.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "53"
+                  endingLineNumber = "53"
+                  offsetFromSymbolStart = "1036">
+               </Location>
+               <Location
+                  uuid = "E34F17EC-EB61-4B1D-9925-1A0DE86D6A06 - 4d75a96ecae006ad"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in ArabamCaseApp.APIClient.call&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Swift.Decodable, &#x3c4;_0_0: Swift.Encodable&gt;(request: ArabamCaseApp.APIRequest, type: &#x3c4;_0_0.Type, completion: (Swift.Result&lt;&#x3c4;_0_0, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "ArabamCaseApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yusufcanbircan/Documents/ArabamInternship/ArabamCaseApp/ArabamCaseApp/ArabamCaseApp/Network/Base/APIClient.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "56"
+                  endingLineNumber = "56"
+                  offsetFromSymbolStart = "1036">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5BA585D4-A13A-45A7-AABF-F598C11E87AE"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ArabamCaseApp/Network/Base/APIClient.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
+            landmarkName = "call(request:type:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

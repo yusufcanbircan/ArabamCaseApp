@@ -37,6 +37,7 @@ final class AdvertListingViewController: UIViewController {
         title = "Adverts"
         configureTableView()
         spinner.startAnimating()
+        viewModel.fetchListingAdverts()
     
     }
     
@@ -61,10 +62,8 @@ extension AdvertListingViewController: UITableViewDelegate, UITableViewDataSourc
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: AdvertListingTableViewCell.className, for: indexPath) as? AdvertListingTableViewCell {
-            cell.titleLabel.text = items[indexPath.row]
-            cell.locationLabel.text = items[indexPath.row]
-            cell.priceLabel.text = items[indexPath.row]
-            let model = AdvertListingTableViewCellViewModel(priceLabel: items[indexPath.row], locationLabel: items[indexPath.row], titleLabel: items[indexPath.row], advertImage: URL(string: "https://arbstorage.mncdn.com/ilanfotograflari/2020/08/13/15207658/bb8fbec7-765c-48ef-96cd-e2935b72947b_image_for_silan_15207658_{0}.jpg"))
+            
+            let model = AdvertListingTableViewCellViewModel(priceLabel: items[indexPath.row], locationLabel: items[indexPath.row], titleLabel: items[indexPath.row], advertImage: URL(string: "https://arbstorage.mncdn.com/ilanfotograflari/2020/11/17/15996479/d4c51893-4420-48cf-afc2-213da87804e4_image_for_silan_15996479_800x600.jpg"))
             cell.configure(with: model)
             return cell
         }
