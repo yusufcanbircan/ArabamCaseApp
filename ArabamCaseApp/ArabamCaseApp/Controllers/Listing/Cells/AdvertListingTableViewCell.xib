@@ -40,9 +40,9 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Aksaray/Merkez" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cVn-wC-KrZ">
-                        <rect key="frame" x="113" y="78" width="80" height="12"/>
+                        <rect key="frame" x="113" y="78" width="120" height="12"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="80" id="igj-Rw-VeX"/>
+                            <constraint firstAttribute="width" constant="120" id="igj-Rw-VeX"/>
                             <constraint firstAttribute="height" constant="12" id="yWn-6f-sNM"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>

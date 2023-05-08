@@ -13,16 +13,15 @@ enum NetworkError: Error {
 }
 
 protocol APIClientProtocol {
-    func call<T: Codable>(request: APIRequest, type: T.Type, completion: @escaping (Result<T, Error>) -> Void )
+    func call<T: Decodable>(request: APIRequest, completion: @escaping (Result<T, Error>) -> Void )
 }
 
 class APIClient: APIClientProtocol {
     
     private let session = URLSession.shared
     
-    func call<T: Codable>(
+    func call<T: Decodable>(
         request: APIRequest,
-        type: T.Type,
         completion: @escaping (Result<T, Error>) -> Void
     ) {
         
@@ -31,8 +30,6 @@ class APIClient: APIClientProtocol {
         urlComponents.scheme = request.scheme
         urlComponents.path = request.path
         urlComponents.queryItems = request.urlQueryItems
-        
-        //print(T.self)
         
         guard let url = urlComponents.url else { return }
         
@@ -44,15 +41,13 @@ class APIClient: APIClientProtocol {
                 completion(.failure(NetworkError.failedToGetData))
                 return
             }
-            
-            
-            
+            //print(String(decoding: data, as: UTF8.self))
             do {
-                let result = try JSONDecoder().decode(AdvertListing.self, from: data)
-                //let result = try JSONDecoder().decode(type.self, from: data)
-                completion(.success(result as! T))
+                let result = try JSONDecoder().decode(T.self, from: data)
+                completion(.success(result))
             }
-            catch {
+            catch{
+                print(error.localizedDescription)
                 completion(.failure(NetworkError.failedToDecodeData))
             }
             

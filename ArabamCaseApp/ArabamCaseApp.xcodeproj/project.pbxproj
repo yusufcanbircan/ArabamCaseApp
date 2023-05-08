@@ -23,6 +23,7 @@
 		BB867FFF2A067A7F00DFB46A /* NSObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB867FFE2A067A7F00DFB46A /* NSObject.swift */; };
 		BB8680012A06824700DFB46A /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8680002A06824700DFB46A /* ImageDownloader.swift */; };
 		BB8680032A069A5E00DFB46A /* AdvertListingViewControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8680022A069A5E00DFB46A /* AdvertListingViewControllerViewModel.swift */; };
+		BBE7E82B2A08EFD4007479D8 /* FooterLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE7E82A2A08EFD4007479D8 /* FooterLoadingView.swift */; };
 		BBF675722A04CDAF00639C11 /* AdvertRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF675712A04CDAF00639C11 /* AdvertRequest.swift */; };
 		BBF675742A04D01100639C11 /* AdvertListingResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF675732A04D01100639C11 /* AdvertListingResponse.swift */; };
 		BBF675762A04D20C00639C11 /* AdvertDetailResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF675752A04D20C00639C11 /* AdvertDetailResponse.swift */; };
@@ -71,6 +72,7 @@
 		BB867FFE2A067A7F00DFB46A /* NSObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSObject.swift; sourceTree = "<group>"; };
 		BB8680002A06824700DFB46A /* ImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
 		BB8680022A069A5E00DFB46A /* AdvertListingViewControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertListingViewControllerViewModel.swift; sourceTree = "<group>"; };
+		BBE7E82A2A08EFD4007479D8 /* FooterLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterLoadingView.swift; sourceTree = "<group>"; };
 		BBF675712A04CDAF00639C11 /* AdvertRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertRequest.swift; sourceTree = "<group>"; };
 		BBF675732A04D01100639C11 /* AdvertListingResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertListingResponse.swift; sourceTree = "<group>"; };
 		BBF675752A04D20C00639C11 /* AdvertDetailResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertDetailResponse.swift; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 			isa = PBXGroup;
 			children = (
 				BBF675872A06510900639C11 /* Listing */,
+				BBE7E82A2A08EFD4007479D8 /* FooterLoadingView.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -414,6 +417,7 @@
 				BBF675722A04CDAF00639C11 /* AdvertRequest.swift in Sources */,
 				BB26C5AE2A03E0D600F1138F /* APIRequest.swift in Sources */,
 				BB867FFA2A06598B00DFB46A /* AdvertListingViewController.swift in Sources */,
+				BBE7E82B2A08EFD4007479D8 /* FooterLoadingView.swift in Sources */,
 				BB867FFF2A067A7F00DFB46A /* NSObject.swift in Sources */,
 				BBF6757B2A04D2ED00639C11 /* AdvertListingService.swift in Sources */,
 				BB26C57F2A03DEA500F1138F /* ArabamCaseApp.xcdatamodeld in Sources */,

@@ -16,9 +16,7 @@ struct AdvertListingResponse: Codable {
     let modelName: String?
     let price: Int?
     let priceFormatted: String?
-    let date: DateEnum?
-    let dateFormatted: DateFormatted?
-    let photo: String?
+    let date, dateFormatted, photo: String?
     let properties: [Property]?
 }
 
@@ -28,16 +26,6 @@ struct Category: Codable {
     let name: String?
 }
 
-enum DateEnum: String, Codable {
-    case the20201111T000000 = "2020-11-11T00:00:00"
-    case the20201112T000000 = "2020-11-12T00:00:00"
-}
-
-enum DateFormatted: String, Codable {
-    case the11Kasım2020 = "11 Kasım 2020"
-    case the12Kasım2020 = "12 Kasım 2020"
-}
-
 // MARK: - Location
 struct Location: Codable {
     let cityName, townName: String?
@@ -45,14 +33,8 @@ struct Location: Codable {
 
 // MARK: - Property
 struct Property: Codable {
-    let name: Name?
+    let name: String?
     let value: String?
-}
-
-enum Name: String, Codable {
-    case color = "color"
-    case km = "km"
-    case year = "year"
 }
 
 typealias AdvertListing = [AdvertListingResponse]

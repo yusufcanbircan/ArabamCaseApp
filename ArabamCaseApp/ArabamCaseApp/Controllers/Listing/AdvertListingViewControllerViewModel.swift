@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 protocol AdvertListingViewControllerViewModelDelegate: NSObject {
     func didLoadAdverts(isInitial: Bool)
@@ -16,20 +17,23 @@ final class AdvertListingViewControllerViewModel: NSObject {
     
     public weak var delegate: AdvertListingViewControllerViewModelDelegate?
     
-    private var isLoadingMore: Bool = false
+    public var isLoadingMore: Bool = false
+    public var isTheEnd = false
+    private var advertsCounter: Int = 0
     private var advertsTake: Int = 10
-    private var sortType: Int = 0 //SortTypes: price = 0, date = 1, year = 2
+    private var sortType: Int = 2 //SortTypes: price = 0, date = 1, year = 2
     private var sortDirection: Int = 0 //ListSortDirections: ascending=0, descending=1
+    public var isInitialValue: Bool = true
     
     public var cellViewModels: [AdvertListingTableViewCellViewModel] = []
     private var adverts: AdvertListing = [] {
         didSet {
             for advert in adverts {
                 let viewModel = AdvertListingTableViewCellViewModel(
-                    priceLabel: "\(advert.price ?? 0) TL",
+                    priceLabel: "\(Int.formatNumber(number: advert.price ?? 0)) TL",
                     locationLabel: "\(advert.location?.cityName ?? "")/\(advert.location?.townName ?? "")",
-                    titleLabel: advert.title ?? "",
-                    advertImage: URL(string: advert.photo ?? "")
+                    titleLabel:  advert.title ?? "",
+                    advertImage: URL(string: .getPhotoUrl(url: advert.photo) ?? "")
                 )
                 
                 if !cellViewModels.contains(viewModel) {
@@ -46,31 +50,30 @@ final class AdvertListingViewControllerViewModel: NSObject {
         guard !isLoadingMore else { return }
         
         isLoadingMore = true
-        let request = AdvertRequest.listing(sort: sortType, sortDirection: sortDirection, take: advertsTake)
-//        guard let request = AdvertRequest.listing(sort: sortType, sortDirection: sortDirection, take: advertsTake) else {
-//            isLoadingMore = false
-//            return
-//        }
-//
-        APIClient().call(request: request, type: AdvertListing.self) { result in
+        advertsCounter = advertsCounter + advertsTake
+        print(advertsCounter)
+        let request = AdvertRequest.listing(sort: sortType, sortDirection: sortDirection, take: advertsCounter)
+        print(request)
+        
+        
+        AdvertListingService().fetchListingObjects(request: request) { [weak self] result in
+            guard let self = self else { return }
             switch result {
             case .success(let responseModal):
-                print(responseModal.count)
+                self.adverts.append(contentsOf: responseModal)
+                DispatchQueue.main.async {
+                    self.delegate?.didLoadAdverts(isInitial: self.isInitialValue)
+                    self.isInitialValue = false
+                    self.isLoadingMore = false
+                }
+                
+                
             case .failure(let failure):
                 print(failure)
+                self.isLoadingMore = false
             }
-            self.isLoadingMore = false
+            
         }
-        
-//        AdvertListingService().fetchListingObjects(request: request) { result in
-//            switch result {
-//            case .success(let responseModal):
-//                print(responseModal.count)
-//            case .failure(let failure):
-//                print(failure)
-//            }
-//            self.isLoadingMore = false
-//        }
 //        RMService.shared.execute(request,
 //                                 expecting: RMGetAllCharactersResponse.self) { [weak self] result in
 //            guard let self = self else { return }
@@ -104,3 +107,40 @@ final class AdvertListingViewControllerViewModel: NSObject {
     }
     
 }
+
+extension AdvertListingViewControllerViewModel: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        guard !isLoadingMore,
+              !cellViewModels.isEmpty
+        else { return }
+        
+        Timer.scheduledTimer(withTimeInterval: 0.2, repeats: false) { [weak self] t in
+            let offset = scrollView.contentOffset.y
+            let totalContentHeight = scrollView.contentSize.height
+            let totalScrollViewFixedHeight = scrollView.frame.size.height
+            
+            if offset >= (totalContentHeight - totalScrollViewFixedHeight - 120) {
+                self?.fetchListingAdverts()
+            }
+            t.invalidate()
+        }
+    }
+}
+
+extension String {
+    static func getPhotoUrl(url:String?, resolution: String = "240x180") -> String? {
+        let url = url?.replacingOccurrences(of: "{0}", with: resolution)
+        return url
+    }
+}
+
+extension Int {
+    static func formatNumber(number: Int) -> String {
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        var str = numberFormatter.string(from: NSNumber(value: number)) ?? "\(number)"
+        str = str.replacingOccurrences(of: ",", with: ".")
+        return str
+    }
+}
+

@@ -22,23 +22,14 @@ final class AdvertListingViewController: UIViewController {
     
     private let viewModel = AdvertListingViewControllerViewModel()
     
-    var items = ["KALAFAT OTO'DAN 2003 MERCEDES-BENZ E 200 KOMP.ELEGANCE HATASIZ",
-                 "KALAFAT OTO'DAN 2003 MERCEDES-BENZ E 200 KOMP.ELEGANCE HATASIZ",
-                 "KALAFAT OTO'DAN 2003 MERCEDES-BENZ E 200 KOMP.ELEGANCE HATASIZ",
-                 "KALAFAT OTO'DAN 2003 MERCEDES-BENZ E 200 KOMP.ELEGANCE HATASIZ",
-                 "KALAFAT OTO'DAN 2003 MERCEDES-BENZ E 200 KOMP.ELEGANCE HATASIZ",
-                 "KALAFAT OTO'DAN 2003 MERCEDES-BENZ E 200 KOMP.ELEGANCE HATASIZ",
-                 "KALAFAT OTO'DAN 2003 MERCEDES-BENZ E 200 KOMP.ELEGANCE HATASIZ",
-                 "KALAFAT OTO'DAN 2003 MERCEDES-BENZ E 200 KOMP.ELEGANCE HATASIZ"]
-    
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Adverts"
         configureTableView()
         spinner.startAnimating()
+        viewModel.delegate = self
         viewModel.fetchListingAdverts()
-    
     }
     
     // MARK: - Private
@@ -46,10 +37,12 @@ final class AdvertListingViewController: UIViewController {
     private func configureTableView() {
         self.tableView.dataSource = self
         self.tableView.delegate = self
-//        self.tableView.isHidden = true
-//        self.tableView.alpha = 0
+        self.tableView.isHidden = true
+        self.tableView.alpha = 0
         let nib = UINib(nibName: AdvertListingTableViewCell.className, bundle: nil)
         self.tableView.register(nib, forCellReuseIdentifier: AdvertListingTableViewCell.className)
+//        let  footerNib = UINib(nibName: FooterLoadingView.className, bundle: nil)
+//        self.tableView.register(footerNib, forHeaderFooterViewReuseIdentifier: FooterLoadingView.className)
     }
 
 }
@@ -57,13 +50,13 @@ final class AdvertListingViewController: UIViewController {
 // MARK: - TableView
 extension AdvertListingViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        self.items.count//self.viewModel.cellViewModels.count
+        self.viewModel.cellViewModels.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: AdvertListingTableViewCell.className, for: indexPath) as? AdvertListingTableViewCell {
             
-            let model = AdvertListingTableViewCellViewModel(priceLabel: items[indexPath.row], locationLabel: items[indexPath.row], titleLabel: items[indexPath.row], advertImage: URL(string: "https://arbstorage.mncdn.com/ilanfotograflari/2020/11/17/15996479/d4c51893-4420-48cf-afc2-213da87804e4_image_for_silan_15996479_800x600.jpg"))
+            let model = viewModel.cellViewModels[indexPath.row]
             cell.configure(with: model)
             return cell
         }
@@ -74,16 +67,26 @@ extension AdvertListingViewController: UITableViewDelegate, UITableViewDataSourc
         view.frame.width/4
     }
     
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row == viewModel.cellViewModels.count - 1 {
+            DispatchQueue.global(qos: .userInitiated).asyncAfter(deadline: .now() + 0.4) {
+                self.viewModel.fetchListingAdverts()
+            }
+            
+        }
+    }
 }
 
 // MARK: - AdvertListingViewControllerViewModelDelegate
 extension AdvertListingViewController: AdvertListingViewControllerViewModelDelegate {
     func didLoadAdverts(isInitial: Bool) {
         
+        tableView.reloadData()
+        
         if isInitial {
             spinner.stopAnimating()
             tableView.isHidden = false
-            tableView.reloadData()
+            
             
             UIView.animate(withDuration: 0.4) {
                 self.tableView.alpha = 1

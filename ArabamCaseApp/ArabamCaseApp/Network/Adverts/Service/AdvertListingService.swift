@@ -8,11 +8,11 @@
 import Foundation
 
 protocol AdvertListingServiceProtocol {
-    func fetchListingObjects(request: APIRequest, completion: @escaping (Result<[AdvertListingResponse], Error>) -> Void)
+    func fetchListingObjects(request: APIRequest, completion: @escaping (Result<AdvertListing, Error>) -> Void)
 }
 
 final class AdvertListingService: APIClient, AdvertListingServiceProtocol {
-    func fetchListingObjects(request: APIRequest, completion: @escaping (Result<[AdvertListingResponse], Error>) -> Void) {
-        call(request: request, type: [AdvertListingResponse].self, completion: completion)
+    func fetchListingObjects(request: APIRequest, completion: @escaping (Result<AdvertListing, Error>) -> Void) {
+        call(request: request, completion: completion)
     }
 }
