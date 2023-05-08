@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol AdvertListingViewControllerProtocol: AnyObject {
+    func advertListing(view: AdvertListingViewController, didSelectedAdvert advert: AdvertDetailResponse)
+}
+
 final class AdvertListingViewController: UIViewController {
     
     // UI Elements
@@ -63,6 +67,14 @@ extension AdvertListingViewController: UITableViewDelegate, UITableViewDataSourc
         return UITableViewCell()
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        let advert = viewModel.cellViewModels[indexPath.row]
+        
+        self.didSelectAdvert(advert.advertId)
+    }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         view.frame.width/4
     }
@@ -72,9 +84,35 @@ extension AdvertListingViewController: UITableViewDelegate, UITableViewDataSourc
             DispatchQueue.global(qos: .userInitiated).asyncAfter(deadline: .now() + 0.4) {
                 self.viewModel.fetchListingAdverts()
             }
-            
         }
     }
+    
+}
+
+// MARK: -
+extension AdvertListingViewController{
+    
+    private func didSelectAdvert(_ advert: Int) {
+        let request = AdvertRequest.detail(id: "\(advert)")
+        print(request)
+        AdvertDetailService().fetchListingObjects(request: request) { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let advert):
+                let viewModel = AdvertDetailViewControllerViewModel(advert: advert)
+                let detailVC = AdvertDetailViewController(viewModel: viewModel)
+                self.navigationController?.pushViewController(detailVC, animated: true)
+            case .failure(let failure):
+                print(failure.localizedDescription)
+            }
+        }
+    }
+    
+//    private func handleAdvertDetail(advert: AdvertDetailResponse) {
+//        let viewModel = AdvertDetailViewControllerViewModel(advert: advert)
+//        let detailVC = AdvertDetailViewController(viewModel: viewModel)
+//        self.navigationController?.pushViewController(detailVC, animated: true)
+//    }
 }
 
 // MARK: - AdvertListingViewControllerViewModelDelegate
@@ -87,15 +125,9 @@ extension AdvertListingViewController: AdvertListingViewControllerViewModelDeleg
             spinner.stopAnimating()
             tableView.isHidden = false
             
-            
             UIView.animate(withDuration: 0.4) {
                 self.tableView.alpha = 1
             }
         }
-        
-    }
-    
-    func didSelectAdvert(_ advert: AdvertDetailResponse) {
-        
     }
 }

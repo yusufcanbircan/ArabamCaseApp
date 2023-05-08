@@ -10,17 +10,19 @@ import Foundation
 struct AdvertListingTableViewCellViewModel: Hashable, Equatable {
     
     public let priceLabel: String
+    public let advertId: Int
     public let locationLabel: String
     public let titleLabel: String
     private let advertImage: URL?
     
     // MARK: - Init
     
-    init(priceLabel: String, locationLabel: String, titleLabel: String, advertImage: URL?) {
+    init(priceLabel: String, locationLabel: String, titleLabel: String, advertImage: URL?, advertId: Int) {
         self.priceLabel = priceLabel
         self.locationLabel = locationLabel
         self.titleLabel = titleLabel
         self.advertImage = advertImage
+        self.advertId = advertId
     }
     
     // MARK: Public
@@ -45,5 +47,6 @@ struct AdvertListingTableViewCellViewModel: Hashable, Equatable {
         hasher.combine(locationLabel)
         hasher.combine(titleLabel)
         hasher.combine(advertImage)
+        hasher.combine(advertId)
     }
 }

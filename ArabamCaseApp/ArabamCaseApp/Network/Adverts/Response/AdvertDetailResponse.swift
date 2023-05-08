@@ -29,4 +29,4 @@ struct UserInfo: Decodable {
     let nameSurname, phone, phoneFormatted: String?
 }
 
-typealias AdvertDetail = [AdvertDetailResponse]
+typealias AdvertDetail = AdvertDetailResponse
