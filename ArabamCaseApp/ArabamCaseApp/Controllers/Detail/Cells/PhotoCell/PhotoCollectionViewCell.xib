@@ -17,8 +17,9 @@
                 <rect key="frame" x="0.0" y="0.0" width="300" height="200"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zmY-Ur-qCA">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="row" translatesAutoresizingMaskIntoConstraints="NO" id="zmY-Ur-qCA">
                         <rect key="frame" x="0.0" y="0.0" width="300" height="200"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="zmY-Ur-qCA" secondAttribute="height" multiplier="3:2" id="MuC-ED-LC3"/>
                         </constraints>
@@ -34,9 +35,12 @@
             </constraints>
             <size key="customSize" width="300" height="200"/>
             <connections>
-                <outlet property="advertImages" destination="zmY-Ur-qCA" id="v3N-EG-dSA"/>
+                <outlet property="advertImages" destination="zmY-Ur-qCA" id="FqC-gK-aiL"/>
             </connections>
             <point key="canvasLocation" x="169.46564885496181" y="73.943661971830991"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="row" width="128" height="128"/>
+    </resources>
 </document>

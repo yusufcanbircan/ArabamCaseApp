@@ -16,6 +16,8 @@ final class AdvertListingViewController: UIViewController {
     // UI Elements
     @IBOutlet weak var tableView: UITableView!
     
+    private let pickerView: UIPickerView = UIPickerView()
+    
     private let spinner: UIActivityIndicatorView = {
         let spinner = UIActivityIndicatorView(style: .medium)
         spinner.hidesWhenStopped = true
@@ -29,14 +31,24 @@ final class AdvertListingViewController: UIViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Adverts"
+        configureUI()
         configureTableView()
-        spinner.startAnimating()
-        viewModel.delegate = self
-        viewModel.fetchListingAdverts()
+        configurePickerView()
+        setUpViewModel()
+        //spinner.startAnimating()
+        setUpRightButtonItem()
     }
     
     // MARK: - Private
+    
+    private func configureUI() {
+        title = "Ilanlar"
+    }
+    
+    private func setUpViewModel() {
+        viewModel.delegate = self
+        viewModel.fetchListingAdverts()
+    }
     
     private func configureTableView() {
         self.tableView.dataSource = self
@@ -89,8 +101,30 @@ extension AdvertListingViewController: UITableViewDelegate, UITableViewDataSourc
     
 }
 
+extension AdvertListingViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    private func configurePickerView() {
+        
+    }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        2
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        component == 0 ? viewModel.sortingTypes.count : viewModel.sortingDirections.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        component == 0 ? viewModel.sortingTypes[row] : viewModel.sortingDirections[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        
+    }
+}
+
 // MARK: -
-extension AdvertListingViewController{
+extension AdvertListingViewController {
     
     private func didSelectAdvert(_ advert: Int) {
         let request = AdvertRequest.detail(id: "\(advert)")
@@ -99,20 +133,24 @@ extension AdvertListingViewController{
             guard let self = self else { return }
             switch result {
             case .success(let advert):
-                let viewModel = AdvertDetailViewControllerViewModel(advert: advert)
-                let detailVC = AdvertDetailViewController(viewModel: viewModel)
-                self.navigationController?.pushViewController(detailVC, animated: true)
+                self.handleAdvertDetail(advert: advert)
             case .failure(let failure):
                 print(failure.localizedDescription)
             }
         }
     }
     
-//    private func handleAdvertDetail(advert: AdvertDetailResponse) {
-//        let viewModel = AdvertDetailViewControllerViewModel(advert: advert)
-//        let detailVC = AdvertDetailViewController(viewModel: viewModel)
-//        self.navigationController?.pushViewController(detailVC, animated: true)
-//    }
+    private func handleAdvertDetail(advert: AdvertDetailResponse) {
+        
+        DispatchQueue.main.async {
+            let viewModel = AdvertDetailViewControllerViewModel(advert: advert)
+            let detailVC = AdvertDetailViewController(viewModel: viewModel)
+            self.navigationController?.pushViewController(detailVC, animated: true)
+        }
+        
+        
+        
+    }
 }
 
 // MARK: - AdvertListingViewControllerViewModelDelegate
@@ -130,4 +168,44 @@ extension AdvertListingViewController: AdvertListingViewControllerViewModelDeleg
             }
         }
     }
+}
+
+// MARK: - RightBarButtonItems
+
+extension AdvertListingViewController {
+    private func setUpRightButtonItem() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            barButtonSystemItem: .edit,
+            target: self,
+            action: #selector(didTapChangeSorting)
+        )
+    }
+    
+    @objc
+    private func didTapChangeSorting() {
+        pickerView.delegate = self
+        pickerView.dataSource = self
+        pickerView.backgroundColor = .white
+
+         let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 44))
+         let doneButton = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(pickerDoneButtonPressed))
+         toolbar.setItems([doneButton], animated: true)
+
+         let inputAccessoryView = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: toolbar.frame.height + pickerView.frame.height))
+         inputAccessoryView.addSubview(toolbar)
+         inputAccessoryView.addSubview(pickerView)
+
+         pickerView.frame.origin.y = toolbar.frame.maxY
+
+         view.endEditing(true)
+         view.addSubview(inputAccessoryView)
+
+         UIView.animate(withDuration: 0.3) {
+             inputAccessoryView.frame.origin.y = self.view.frame.height - inputAccessoryView.frame.height
+         }
+     }
+
+     @objc func pickerDoneButtonPressed() {
+         view.subviews.last?.removeFromSuperview()
+     }
 }

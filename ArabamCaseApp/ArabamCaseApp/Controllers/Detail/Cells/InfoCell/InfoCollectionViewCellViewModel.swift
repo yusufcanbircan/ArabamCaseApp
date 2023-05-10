@@ -16,7 +16,7 @@ final class InfoCollectionViewCellViewModel {
     }
     
     public var displayValue: String {
-        value.isEmpty ? "None" : value
+        return value
     }
     
     enum `Type`: String {

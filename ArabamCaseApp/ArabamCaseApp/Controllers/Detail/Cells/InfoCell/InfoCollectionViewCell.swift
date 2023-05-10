@@ -15,7 +15,6 @@ final class InfoCollectionViewCell: UICollectionViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
     
     override func prepareForReuse() {
@@ -24,9 +23,8 @@ final class InfoCollectionViewCell: UICollectionViewCell {
     }
     
     public func configure(viewModel: InfoCollectionViewCellViewModel) {
-        valueLabel.text = viewModel.displayValue
-        nameLabel.text = viewModel.title
-        
+        self.valueLabel.text = viewModel.displayValue
+        self.nameLabel.text = viewModel.title
     }
 
 }

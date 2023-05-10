@@ -41,13 +41,11 @@ class APIClient: APIClientProtocol {
                 completion(.failure(NetworkError.failedToGetData))
                 return
             }
-            //print(String(decoding: data, as: UTF8.self))
             do {
                 let result = try JSONDecoder().decode(T.self, from: data)
                 completion(.success(result))
             }
             catch{
-                print(error.localizedDescription)
                 completion(.failure(NetworkError.failedToDecodeData))
             }
             

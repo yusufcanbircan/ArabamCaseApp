@@ -7,17 +7,49 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "44AA23D9-1F58-48BE-A27D-8D8227745348"
+            uuid = "541FBCBD-61E0-47E7-8F40-33F02487A5A5"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ArabamCaseApp/Controllers/Listing/AdvertListingViewController.swift"
+            filePath = "ArabamCaseApp/Controllers/Detail/AdvertDetailViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "122"
-            endingLineNumber = "122"
-            landmarkName = "didLoadAdverts(isInitial:)"
+            startingLineNumber = "101"
+            endingLineNumber = "101"
+            landmarkName = "collectionView(_:cellForItemAt:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "541FBCBD-61E0-47E7-8F40-33F02487A5A5 - 9e2dc6926efd4d63"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ArabamCaseApp.AdvertDetailViewController.collectionView(_: __C.UICollectionView, cellForItemAt: Foundation.IndexPath) -&gt; __C.UICollectionViewCell"
+                  moduleName = "ArabamCaseApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yusufcanbircan/Documents/ArabamInternship/ArabamCaseApp/ArabamCaseApp/ArabamCaseApp/Controllers/Detail/AdvertDetailViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "99"
+                  endingLineNumber = "99"
+                  offsetFromSymbolStart = "924">
+               </Location>
+               <Location
+                  uuid = "541FBCBD-61E0-47E7-8F40-33F02487A5A5 - 9e2dc6926efd4dcc"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ArabamCaseApp.AdvertDetailViewController.collectionView(_: __C.UICollectionView, cellForItemAt: Foundation.IndexPath) -&gt; __C.UICollectionViewCell"
+                  moduleName = "ArabamCaseApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yusufcanbircan/Documents/ArabamInternship/ArabamCaseApp/ArabamCaseApp/ArabamCaseApp/Controllers/Detail/AdvertDetailViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "102"
+                  endingLineNumber = "102"
+                  offsetFromSymbolStart = "596">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -20,9 +20,11 @@ final class AdvertListingViewControllerViewModel: NSObject {
     public var isTheEnd = false
     private var advertsCounter: Int = 0
     private var advertsTake: Int = 10
-    private var sortType: Int = 2 //SortTypes: price = 0, date = 1, year = 2
+    private var sortType: Int = 1 //SortTypes: price = 0, date = 1, year = 2
     private var sortDirection: Int = 0 //ListSortDirections: ascending=0, descending=1
     public var isInitialValue: Bool = true
+    public var sortingTypes = ["Fiyata Göre", "Tarihe Göre", "Yıla Göre"]
+    public var sortingDirections = ["Artan", "Azalan"]
     
     public var cellViewModels: [AdvertListingTableViewCellViewModel] = []
     private var adverts: AdvertListing = [] {
@@ -74,25 +76,6 @@ final class AdvertListingViewControllerViewModel: NSObject {
         }
     }
 }
-
-//extension AdvertListingViewControllerViewModel: UIScrollViewDelegate {
-//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-//        guard !isLoadingMore,
-//              !cellViewModels.isEmpty
-//        else { return }
-//        
-//        Timer.scheduledTimer(withTimeInterval: 0.2, repeats: false) { [weak self] t in
-//            let offset = scrollView.contentOffset.y
-//            let totalContentHeight = scrollView.contentSize.height
-//            let totalScrollViewFixedHeight = scrollView.frame.size.height
-//            
-//            if offset >= (totalContentHeight - totalScrollViewFixedHeight - 120) {
-//                self?.fetchListingAdverts()
-//            }
-//            t.invalidate()
-//        }
-//    }
-//}
 
 extension String {
     static func getPhotoUrl(url:String?, resolution: String = "240x180") -> String? {
