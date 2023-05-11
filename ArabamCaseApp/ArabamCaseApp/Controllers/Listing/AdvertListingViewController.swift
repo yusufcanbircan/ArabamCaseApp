@@ -16,16 +16,17 @@ final class AdvertListingViewController: UIViewController {
     // UI Elements
     @IBOutlet weak var tableView: UITableView!
     
-    private let pickerView: UIPickerView = UIPickerView()
+    private let pickerView = UIPickerView(frame: CGRect(x: 0, y: UIScreen.main.bounds.height, width: UIScreen.main.bounds.width, height: 216))
+    private let toolbar = UIToolbar(frame: CGRect(x: 0, y: UIScreen.main.bounds.height, width: UIScreen.main.bounds.width, height: 44))
     
     private let spinner: UIActivityIndicatorView = {
         let spinner = UIActivityIndicatorView(style: .medium)
         spinner.hidesWhenStopped = true
         spinner.translatesAutoresizingMaskIntoConstraints = false
-        
         return spinner
     }()
     
+    // MARK: - ViewModel
     private let viewModel = AdvertListingViewControllerViewModel()
     
     // MARK: - Lifecycle
@@ -36,13 +37,13 @@ final class AdvertListingViewController: UIViewController {
         configurePickerView()
         setUpViewModel()
         //spinner.startAnimating()
-        setUpRightButtonItem()
     }
     
     // MARK: - Private
     
     private func configureUI() {
         title = "Ilanlar"
+        setUpRightButtonItem()
     }
     
     private func setUpViewModel() {
@@ -71,7 +72,6 @@ extension AdvertListingViewController: UITableViewDelegate, UITableViewDataSourc
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: AdvertListingTableViewCell.className, for: indexPath) as? AdvertListingTableViewCell {
-            
             let model = viewModel.cellViewModels[indexPath.row]
             cell.configure(with: model)
             return cell
@@ -81,9 +81,7 @@ extension AdvertListingViewController: UITableViewDelegate, UITableViewDataSourc
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        
         let advert = viewModel.cellViewModels[indexPath.row]
-        
         self.didSelectAdvert(advert.advertId)
     }
     
@@ -98,12 +96,15 @@ extension AdvertListingViewController: UITableViewDelegate, UITableViewDataSourc
             }
         }
     }
-    
 }
+
+// MARK: - PickerViewDelegate
 
 extension AdvertListingViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     private func configurePickerView() {
-        
+        pickerView.delegate = self
+        pickerView.dataSource = self
+        pickerView.backgroundColor = .white
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -117,10 +118,6 @@ extension AdvertListingViewController: UIPickerViewDelegate, UIPickerViewDataSou
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         component == 0 ? viewModel.sortingTypes[row] : viewModel.sortingDirections[row]
     }
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        
-    }
 }
 
 // MARK: -
@@ -128,7 +125,6 @@ extension AdvertListingViewController {
     
     private func didSelectAdvert(_ advert: Int) {
         let request = AdvertRequest.detail(id: "\(advert)")
-        print(request)
         AdvertDetailService().fetchListingObjects(request: request) { [weak self] result in
             guard let self = self else { return }
             switch result {
@@ -141,15 +137,12 @@ extension AdvertListingViewController {
     }
     
     private func handleAdvertDetail(advert: AdvertDetailResponse) {
-        
+        // handle push error
         DispatchQueue.main.async {
             let viewModel = AdvertDetailViewControllerViewModel(advert: advert)
             let detailVC = AdvertDetailViewController(viewModel: viewModel)
             self.navigationController?.pushViewController(detailVC, animated: true)
         }
-        
-        
-        
     }
 }
 
@@ -175,7 +168,8 @@ extension AdvertListingViewController: AdvertListingViewControllerViewModelDeleg
 extension AdvertListingViewController {
     private func setUpRightButtonItem() {
         navigationItem.rightBarButtonItem = UIBarButtonItem(
-            barButtonSystemItem: .edit,
+            image: UIImage(systemName: "line.3.horizontal.decrease.circle"),
+            style: .plain,
             target: self,
             action: #selector(didTapChangeSorting)
         )
@@ -183,29 +177,28 @@ extension AdvertListingViewController {
     
     @objc
     private func didTapChangeSorting() {
-        pickerView.delegate = self
-        pickerView.dataSource = self
-        pickerView.backgroundColor = .white
 
-         let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 44))
-         let doneButton = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(pickerDoneButtonPressed))
-         toolbar.setItems([doneButton], animated: true)
-
-         let inputAccessoryView = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: toolbar.frame.height + pickerView.frame.height))
-         inputAccessoryView.addSubview(toolbar)
-         inputAccessoryView.addSubview(pickerView)
-
-         pickerView.frame.origin.y = toolbar.frame.maxY
-
-         view.endEditing(true)
-         view.addSubview(inputAccessoryView)
-
-         UIView.animate(withDuration: 0.3) {
-             inputAccessoryView.frame.origin.y = self.view.frame.height - inputAccessoryView.frame.height
-         }
+        let doneButton = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(pickerDoneButtonPressed))
+        toolbar.setItems([doneButton], animated: true)
+        
+        self.view.addSubview(pickerView)
+        self.view.addSubview(toolbar)
+        
+        UIView.animate(withDuration: 0.3) {
+            self.pickerView.frame = CGRect(x: 0, y: UIScreen.main.bounds.height - 216, width: UIScreen.main.bounds.width, height: 216)
+            self.toolbar.frame = CGRect(x: 0, y: UIScreen.main.bounds.height - 260, width: UIScreen.main.bounds.width, height: 44)
+        }
      }
 
      @objc func pickerDoneButtonPressed() {
-         view.subviews.last?.removeFromSuperview()
+         let type = pickerView.selectedRow(inComponent: 0)
+         let direction = pickerView.selectedRow(inComponent: 1)
+         
+         viewModel.changeSorting(type: type, direction: direction)
+         
+         UIView.animate(withDuration: 0.3) {
+             self.pickerView.frame = CGRect(x: 0, y: UIScreen.main.bounds.height, width: UIScreen.main.bounds.width, height: 216)
+             self.toolbar.frame = CGRect(x: 0, y: UIScreen.main.bounds.height, width: UIScreen.main.bounds.width, height: 44)
+         }
      }
 }

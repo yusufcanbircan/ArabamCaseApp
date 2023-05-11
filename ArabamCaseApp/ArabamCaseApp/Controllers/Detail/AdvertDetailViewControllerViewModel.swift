@@ -109,7 +109,7 @@ final class AdvertDetailViewControllerViewModel {
         let group = NSCollectionLayoutGroup.horizontal(
             layoutSize: NSCollectionLayoutSize(
                 widthDimension: .fractionalWidth(1.0),
-                heightDimension: .absolute(120)
+                heightDimension: .estimated(130)
             ),
             subitems: [item])
         let section = NSCollectionLayoutSection(group: group)
