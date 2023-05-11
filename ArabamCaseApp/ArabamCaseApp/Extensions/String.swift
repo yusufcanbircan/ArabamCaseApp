@@ -12,4 +12,11 @@ extension String {
         let url = url?.replacingOccurrences(of: "{0}", with: resolution)
         return url
     }
+    
+    static func getObject(advert: AdvertDetailResponse, name: String) -> String {
+        
+        guard let properties = advert.properties else { return ""}
+        
+        return properties.first(where: { $0.name == name })?.value ?? "bilinmiyor"
+    }
 }

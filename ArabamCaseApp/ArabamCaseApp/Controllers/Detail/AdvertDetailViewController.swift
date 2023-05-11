@@ -7,10 +7,6 @@
 
 import UIKit
 
-protocol AdvertDetailViewControllerProtocol: AnyObject {
-    func getViewModel(viewModel: AdvertDetailViewControllerViewModel)
-}
-
 final class AdvertDetailViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
@@ -117,6 +113,30 @@ extension AdvertDetailViewController: UICollectionViewDelegate, UICollectionView
             let cell = collectionView.dequeueReusableCell(withClass: SummaryCollectionViewCell.self, for: indexPath)
             cell.configure(viewModel: viewModel)
             return cell
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let sectionType = viewModel.sections[indexPath.section]
+        
+        switch sectionType {
+        case .photo:
+            self.handleFullScreen(photos: viewModel.photos)
+        case .userInformation:
+            return
+        case .information:
+            return
+        case .summary:
+            return
+        }
+    }
+    
+    private func handleFullScreen(photos: [String]) {
+        // handle push error
+        DispatchQueue.main.async {
+            let viewModel = FullScreenViewControllerViewModel(photos: photos)
+            let fullScreenVC = FullScreenViewController(viewModel: viewModel)
+            self.navigationController?.pushViewController(fullScreenVC, animated: true)
         }
     }
 }

@@ -173,14 +173,3 @@ final class AdvertDetailViewControllerViewModel {
     }
     
 }
-
-
-
-extension String {
-    static func getObject(advert: AdvertDetailResponse, name: String) -> String {
-        
-        guard let properties = advert.properties else { return ""}
-        
-        return properties.first(where: { $0.name == name })?.value ?? "bilinmiyor"
-    }
-}
