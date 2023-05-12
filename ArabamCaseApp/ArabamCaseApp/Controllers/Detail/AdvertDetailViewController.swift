@@ -96,11 +96,18 @@ extension AdvertDetailViewController: UICollectionViewDelegate, UICollectionView
             if let viewModels {
                 cell.configure(viewModel: viewModels[indexPath.row])
             }
-            // swifterswift
             return cell
             
         case .userInformation(let viewModel):
             let cell = collectionView.dequeueReusableCell(withClass: UserInfoCollectionViewCell.self, for: indexPath)
+            cell.setNeedsLayout()
+            cell.layoutIfNeeded()
+    
+            let size = cell.contentView.systemLayoutSizeFitting(CGSize(width: collectionView.bounds.width, height: UIView.layoutFittingCompressedSize.height))
+            
+            var cellFrame = cell.frame
+            cellFrame.size.height = size.height
+            cell.frame = cellFrame
             cell.configure(viewModel: viewModel)
             return cell
             
@@ -111,6 +118,16 @@ extension AdvertDetailViewController: UICollectionViewDelegate, UICollectionView
             
         case .summary(let viewModel):
             let cell = collectionView.dequeueReusableCell(withClass: SummaryCollectionViewCell.self, for: indexPath)
+            
+            cell.setNeedsLayout()
+            cell.layoutIfNeeded()
+    
+            let size = cell.contentView.systemLayoutSizeFitting(CGSize(width: collectionView.bounds.width, height: UIView.layoutFittingCompressedSize.height))
+            
+            var cellFrame = cell.frame
+            cellFrame.size.height = size.height
+            cell.frame = cellFrame
+            
             cell.configure(viewModel: viewModel)
             return cell
         }
@@ -133,10 +150,11 @@ extension AdvertDetailViewController: UICollectionViewDelegate, UICollectionView
     
     private func handleFullScreen(photos: [String]) {
         // handle push error
-        DispatchQueue.main.async {
-            let viewModel = FullScreenViewControllerViewModel(photos: photos)
-            let fullScreenVC = FullScreenViewController(viewModel: viewModel)
-            self.navigationController?.pushViewController(fullScreenVC, animated: true)
-        }
+        let viewModel = FullScreenViewControllerViewModel(photos: photos)
+        let fullScreenVC = FullScreenViewController(viewModel: viewModel)
+        self.navigationController?.pushViewController(fullScreenVC, animated: true)
+//        DispatchQueue.main.async {
+//
+//        }
     }
 }

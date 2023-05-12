@@ -8,6 +8,7 @@
 import Foundation
 
 final class UserInfoCollectionViewCellViewModel {
+    
     private let name: String
     private let city: String
     private let price: String

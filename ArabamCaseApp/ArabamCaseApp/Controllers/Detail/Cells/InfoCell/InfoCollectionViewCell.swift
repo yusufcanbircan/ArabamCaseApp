@@ -12,7 +12,6 @@ final class InfoCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var valueLabel: UILabel!
     
-
     override func awakeFromNib() {
         super.awakeFromNib()
     }

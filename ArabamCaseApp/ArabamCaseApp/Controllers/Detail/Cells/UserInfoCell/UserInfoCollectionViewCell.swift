@@ -7,7 +7,7 @@
 
 import UIKit
 
-class UserInfoCollectionViewCell: UICollectionViewCell {
+final class UserInfoCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var cityLabel: UILabel!
@@ -16,7 +16,6 @@ class UserInfoCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
     
     override func prepareForReuse() {

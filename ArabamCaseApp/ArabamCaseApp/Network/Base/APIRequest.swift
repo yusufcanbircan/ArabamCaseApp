@@ -7,7 +7,8 @@
 
 import Foundation
 
-@frozen enum UrlPath: String {
+@frozen
+enum UrlPath: String {
     case detail = "/api/v1/detail"
     case listing = "/api/v1/listing"
 }

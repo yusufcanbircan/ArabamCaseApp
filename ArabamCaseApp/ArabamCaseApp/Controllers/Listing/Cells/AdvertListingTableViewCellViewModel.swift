@@ -32,12 +32,10 @@ struct AdvertListingTableViewCellViewModel: Hashable, Equatable {
             completion(.failure(URLError(.badURL)))
             return
         }
-        
         ImageDownloader.shared.downloadImage(url: url, completion: completion)
     }
     
     // MARK: - Hash
-    
     static func == (lhs: AdvertListingTableViewCellViewModel, rhs: AdvertListingTableViewCellViewModel) -> Bool {
         lhs.hashValue == rhs.hashValue
     }

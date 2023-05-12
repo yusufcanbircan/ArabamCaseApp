@@ -30,16 +30,17 @@ final class InfoCollectionViewCellViewModel {
         case date
         
         var displayTitle: String {
+            
             switch self {
-            case .km,
-                    .color,
-                    .year,
-                    .gear,
-                    .fuel,
-                    .owner,
-                    .model,
-                    .date:
-                return rawValue.uppercased()
+            case .km: return "km"
+            case .color: return "renk"
+            case .date: return "tarih"
+            case .fuel: return "yakıt"
+            case .gear: return "vites"
+            case .model: return "model"
+            case .owner: return "sahibi"
+            case .year: return "yıl"
+                
             }
         }
     }

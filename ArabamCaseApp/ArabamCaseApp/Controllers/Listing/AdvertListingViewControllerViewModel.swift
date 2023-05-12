@@ -5,7 +5,6 @@
 //  Created by Yusuf Can Bircan on 6.05.2023.
 //
 
-import Foundation
 import UIKit
 
 protocol AdvertListingViewControllerViewModelDelegate: NSObject {
@@ -42,8 +41,8 @@ final class AdvertListingViewControllerViewModel: NSObject {
     
     private static func getCellViewModel(advert: AdvertListingResponse) -> AdvertListingTableViewCellViewModel {
         AdvertListingTableViewCellViewModel(
-            priceLabel: "\(Int.formatNumber(number: advert.price ?? 0)) TL",
-            locationLabel: "\(advert.location?.cityName ?? "")/\(advert.location?.townName ?? "")",
+            priceLabel: .getPrice(advert: advert),
+            locationLabel: .getCity(advert: advert),
             titleLabel:  advert.title ?? "",
             advertImage: URL(string: .getPhotoUrl(url: advert.photo) ?? ""),
             advertId: advert.id ?? 0

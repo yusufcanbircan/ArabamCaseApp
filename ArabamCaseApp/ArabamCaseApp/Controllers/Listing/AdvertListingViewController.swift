@@ -19,13 +19,6 @@ final class AdvertListingViewController: UIViewController {
     private let pickerView = UIPickerView(frame: CGRect(x: 0, y: UIScreen.main.bounds.height, width: UIScreen.main.bounds.width, height: 216))
     private let toolbar = UIToolbar(frame: CGRect(x: 0, y: UIScreen.main.bounds.height, width: UIScreen.main.bounds.width, height: 44))
     
-    private let spinner: UIActivityIndicatorView = {
-        let spinner = UIActivityIndicatorView(style: .medium)
-        spinner.hidesWhenStopped = true
-        spinner.translatesAutoresizingMaskIntoConstraints = false
-        return spinner
-    }()
-    
     // MARK: - ViewModel
     private let viewModel = AdvertListingViewControllerViewModel()
     
@@ -36,13 +29,12 @@ final class AdvertListingViewController: UIViewController {
         configureTableView()
         configurePickerView()
         setUpViewModel()
-        //spinner.startAnimating()
     }
     
     // MARK: - Private
     
     private func configureUI() {
-        title = "Ilanlar"
+        title = "İlanlar"
         setUpRightButtonItem()
     }
     
@@ -58,8 +50,6 @@ final class AdvertListingViewController: UIViewController {
         self.tableView.alpha = 0
         let nib = UINib(nibName: AdvertListingTableViewCell.className, bundle: nil)
         self.tableView.register(nib, forCellReuseIdentifier: AdvertListingTableViewCell.className)
-//        let  footerNib = UINib(nibName: FooterLoadingView.className, bundle: nil)
-//        self.tableView.register(footerNib, forHeaderFooterViewReuseIdentifier: FooterLoadingView.className)
     }
 
 }
@@ -151,11 +141,8 @@ extension AdvertListingViewController: AdvertListingViewControllerViewModelDeleg
     func didLoadAdverts(isInitial: Bool) {
         
         tableView.reloadData()
-        
         if isInitial {
-            spinner.stopAnimating()
             tableView.isHidden = false
-            
             UIView.animate(withDuration: 0.4) {
                 self.tableView.alpha = 1
             }

@@ -50,6 +50,7 @@
                             <constraint firstItem="pZM-Ae-8cQ" firstAttribute="top" secondItem="YBL-aR-8cQ" secondAttribute="top" id="Iec-19-McB"/>
                             <constraint firstAttribute="trailing" secondItem="Tbk-qX-G54" secondAttribute="trailing" id="MVD-5Z-tob"/>
                             <constraint firstAttribute="bottom" secondItem="Tbk-qX-G54" secondAttribute="bottom" id="PVg-Xd-B5c"/>
+                            <constraint firstItem="Tbk-qX-G54" firstAttribute="top" secondItem="g1E-TY-SdV" secondAttribute="bottom" constant="17.670000000000002" id="Sd7-fz-VZz"/>
                             <constraint firstItem="g1E-TY-SdV" firstAttribute="top" secondItem="pZM-Ae-8cQ" secondAttribute="bottom" constant="20" id="gG5-Dk-b1v"/>
                             <constraint firstItem="Tbk-qX-G54" firstAttribute="leading" secondItem="YBL-aR-8cQ" secondAttribute="leading" id="pkn-Z0-e2f"/>
                             <constraint firstAttribute="trailing" secondItem="g1E-TY-SdV" secondAttribute="trailing" constant="20" id="pnt-Zc-Pc8"/>

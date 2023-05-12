@@ -5,26 +5,21 @@
 //  Created by Yusuf Can Bircan on 11.05.2023.
 //
 
-import Foundation
+import UIKit
+
 final class FullScreenViewControllerViewModel {
         
     public var cellViewModels: [FullScreenPhotoCollectionViewCellViewModel] = []
-    private var photos: [String] = [] {
-        didSet {
-            for photo in photos {
-                let viewModel = FullScreenPhotoCollectionViewCellViewModel(imageUrl: URL(string: .getPhotoUrl(url: photo, resolution: "1920x1080") ?? ""))
-                
-                print(viewModel)
-            }
-        }
-    }
-    
-    
-    
+    private var photos: [String]
+
     init(photos: [String]) {
         self.photos = photos
     }
     
-    // MARK: - Private
-    
+    public func handlePhotoModels() {
+        for photo in photos {
+            let viewModel = FullScreenPhotoCollectionViewCellViewModel(imageUrl: URL(string: .getPhotoUrl(url: photo, resolution: .high) ?? ""))
+            cellViewModels.append(viewModel)
+        }
+    }
 }

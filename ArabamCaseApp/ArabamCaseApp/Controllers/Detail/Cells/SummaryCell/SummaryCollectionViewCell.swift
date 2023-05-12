@@ -12,8 +12,6 @@ final class SummaryCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var summaryLabel: UILabel!
     
     override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
     }
     
     override func prepareForReuse() {
@@ -21,7 +19,6 @@ final class SummaryCollectionViewCell: UICollectionViewCell {
     }
     
     public func configure(viewModel: SummaryCollectionViewCellViewModel) {
-        self.summaryLabel.text = viewModel.summaryString
+        self.summaryLabel.attributedText = viewModel.summaryString.html2AttributedString
     }
-
 }

@@ -29,7 +29,6 @@ final class AdvertDetailViewControllerViewModel {
     public var sections: [SectionType] = []
     
     // MARK: - Init
-    
     init(advert: AdvertDetailResponse) {
         self.advert = advert
         setUpSections()
@@ -37,31 +36,37 @@ final class AdvertDetailViewControllerViewModel {
     
     
     // MARK: - Private
-    
     private func setUpSections() {
+        enum `Type`: String {
+            case km
+            case color
+            case year
+            case gear
+            case fuel
+        }
+        
         sections = [
             .photo(viewModels: advert.photos?.compactMap({
-                return PhotoCollectionViewCellViewModel(imageUrl: URL(string: .getPhotoUrl(url: $0, resolution: "800x600") ?? ""))
+                return PhotoCollectionViewCellViewModel(imageUrl: URL(string: .getPhotoUrl(url: $0, resolution: .medium) ?? ""))
             })),
             .userInformation(viewModel:
-                    .init(name: advert.userInfo?.nameSurname ?? "unknown",
-                          city: "\(advert.location?.townName ?? "")/\(advert.location?.cityName ?? "")",
-                          price: "\(Int.formatNumber(number: advert.price ?? 0)) TL",
+                    .init(name: advert.userInfo?.nameSurname ?? .unknownCase,
+                          city: .getCity(advert: advert),
+                          price: .getPrice(advert: advert),
                           title: advert.title ?? "İlan")),
             .information(viewModels: [
-                .init(type: .km, value: .getObject(advert: advert, name: "km")),
-                .init(type: .color, value: .getObject(advert: advert, name: "color")),
-                .init(type: .date, value: advert.dateFormatted ?? "unknown"),
-                .init(type: .fuel, value: .getObject(advert: advert, name: "fuel")),
-                .init(type: .gear, value: .getObject(advert: advert, name: "gear")),
-                .init(type: .model, value: advert.modelName ?? "unknown"),
-                .init(type: .owner, value: advert.userInfo?.nameSurname ?? "unknown"),
-                .init(type: .year, value: .getObject(advert: advert, name: "year"))
+                .init(type: .km, value: .getObject(advert: advert, name:`Type`.km.rawValue)),
+                .init(type: .color, value: .getObject(advert: advert, name: `Type`.color.rawValue)),
+                .init(type: .date, value: advert.dateFormatted ?? .unknownCase),
+                .init(type: .fuel, value: .getObject(advert: advert, name: `Type`.fuel.rawValue)),
+                .init(type: .gear, value: .getObject(advert: advert, name: `Type`.gear.rawValue)),
+                .init(type: .model, value: advert.modelName ?? .unknownCase),
+                .init(type: .owner, value: advert.userInfo?.nameSurname ?? .unknownCase),
+                .init(type: .year, value: .getObject(advert: advert, name: `Type`.year.rawValue))
             ]),
-            .summary(viewModels: .init(summary: advert.text ?? "no text"))
+            .summary(viewModels: .init(summary: .getSummary(advert: advert)))
         ]
     }
-    
     
     // MARK: - Layout
     public func createPhotoSectionLayout() -> NSCollectionLayoutSection {
@@ -100,7 +105,7 @@ final class AdvertDetailViewControllerViewModel {
         )
         
         item.contentInsets = NSDirectionalEdgeInsets(
-            top: 5,
+            top: 0,
             leading: 0,
             bottom: 5,
             trailing: 0
@@ -144,8 +149,6 @@ final class AdvertDetailViewControllerViewModel {
     }
     
     public func createSummarySectionLayout() -> NSCollectionLayoutSection {
-        
-        let height = NSCollectionLayoutDimension.estimated(500)
         let item = NSCollectionLayoutItem(
             layoutSize: NSCollectionLayoutSize(
                 widthDimension: .fractionalWidth(1.0),
@@ -163,7 +166,7 @@ final class AdvertDetailViewControllerViewModel {
         let group = NSCollectionLayoutGroup.horizontal(
             layoutSize: NSCollectionLayoutSize(
                 widthDimension: .fractionalWidth(1.0),
-                heightDimension: height
+                heightDimension: .estimated(120)
             ),
             subitems: [item])
         

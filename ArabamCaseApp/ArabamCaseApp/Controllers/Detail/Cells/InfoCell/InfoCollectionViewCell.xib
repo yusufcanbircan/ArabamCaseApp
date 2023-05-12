@@ -22,19 +22,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="383" height="50"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qcf-6n-qy2">
-                                <rect key="frame" x="20" y="18" width="170" height="14.333333333333336"/>
+                                <rect key="frame" x="20" y="18" width="70" height="14.333333333333336"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="170" id="T03-Sq-Lvo"/>
+                                    <constraint firstAttribute="width" constant="70" id="T03-Sq-Lvo"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
                                 <color key="textColor" systemColor="secondaryLabelColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="89z-RT-IOO">
-                                <rect key="frame" x="213" y="18" width="150" height="14.333333333333336"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="150" id="RvY-eg-6mn"/>
-                                </constraints>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="89z-RT-IOO">
+                                <rect key="frame" x="331.33333333333331" y="18" width="31.666666666666686" height="14.333333333333336"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                                 <color key="textColor" systemColor="tertiaryLabelColor"/>
                                 <nil key="highlightedColor"/>
@@ -46,6 +43,7 @@
                             <constraint firstItem="Qcf-6n-qy2" firstAttribute="centerY" secondItem="bhM-eR-CW2" secondAttribute="centerY" id="7KD-JG-hdZ"/>
                             <constraint firstAttribute="trailing" secondItem="89z-RT-IOO" secondAttribute="trailing" constant="20" id="F2k-GX-QcD"/>
                             <constraint firstItem="Qcf-6n-qy2" firstAttribute="leading" secondItem="bhM-eR-CW2" secondAttribute="leading" constant="20" id="Ra6-Ts-cgO"/>
+                            <constraint firstItem="89z-RT-IOO" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Qcf-6n-qy2" secondAttribute="trailing" constant="15" id="Xid-i5-E0E"/>
                         </constraints>
                     </view>
                 </subviews>

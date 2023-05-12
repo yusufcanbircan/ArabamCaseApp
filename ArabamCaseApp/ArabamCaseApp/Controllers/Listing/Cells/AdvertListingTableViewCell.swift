@@ -14,14 +14,12 @@ final class AdvertListingTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var advertImage: UIImageView!
     
-
     override func awakeFromNib() {
         super.awakeFromNib()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
     }
     
     override func prepareForReuse() {
@@ -35,6 +33,7 @@ final class AdvertListingTableViewCell: UITableViewCell {
         priceLabel.text = viewModel.priceLabel
         locationLabel.text = viewModel.locationLabel
         titleLabel.text = viewModel.titleLabel
+        
         viewModel.fetchImage { [weak self] result in
             guard let self = self else { return }
             
