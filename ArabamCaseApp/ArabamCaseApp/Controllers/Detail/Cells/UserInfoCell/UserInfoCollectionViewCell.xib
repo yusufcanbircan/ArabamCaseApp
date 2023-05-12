@@ -35,8 +35,9 @@
                                     <constraint firstAttribute="height" constant="1" id="zTj-Dn-gGx"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Acillll Sahibinden Opel Corsa Acillll Sahibinden Opel Corsa Acillll Sahibinden Opel Corsa Acillll Sahibinden Opel Corsa " lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jwe-jM-ktL">
-                                <rect key="frame" x="20" y="15.999999999999996" width="343" height="46.666666666666657"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jwe-jM-ktL">
+                                <rect key="frame" x="20" y="15.999999999999996" width="343" height="48.666666666666657"/>
+                                <string key="text">Acillll Sahibinden Opel Corsa Acillll Sahibinden Opel Corsa Acillll Sahibinden Opel Corsa Acillll Sahibinden Opel Corsa Acillll Sahibinden Opel Corsa Acillll Sahibinden Opel Corsa Acillll Sahibinden Opel Corsa Acillll Sahibinden Opel Corsa </string>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -53,8 +54,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="İzmir-Menemen" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="al0-IK-9AO">
-                                <rect key="frame" x="20" y="67.666666666666671" width="84" height="13.333333333333329"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="İzmir-Menemen" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="al0-IK-9AO">
+                                <rect key="frame" x="20" y="69.666666666666671" width="84" height="13.333333333333329"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="11"/>
                                 <color key="textColor" systemColor="secondaryLabelColor"/>
                                 <nil key="highlightedColor"/>
