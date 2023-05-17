@@ -8,11 +8,17 @@
 import Foundation
 
 extension Int {
-    static func formatNumber(number: Int) -> String {
+    func formatNumber() -> String {
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .decimal
-        var str = numberFormatter.string(from: NSNumber(value: number)) ?? "\(number)"
+        var str = numberFormatter.string(from: NSNumber(value: self)) ?? "\(self)"
         str = str.replacingOccurrences(of: ",", with: ".")
         return str
+    }
+    
+    func formatAsDecimal() -> String {
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        return numberFormatter.string(from: NSNumber(value: self)) ?? "\(self)"
     }
 }

@@ -21,17 +21,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="300" height="200"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="width" secondItem="zmY-Ur-qCA" secondAttribute="height" multiplier="3:2" id="MuC-ED-LC3"/>
+                            <constraint firstAttribute="width" secondItem="zmY-Ur-qCA" secondAttribute="height" multiplier="3:2" id="ULN-YY-73w"/>
                         </constraints>
                     </imageView>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
-                <constraint firstItem="zmY-Ur-qCA" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="DDG-PW-D3Z"/>
-                <constraint firstAttribute="trailing" secondItem="zmY-Ur-qCA" secondAttribute="trailing" id="Dt7-Yn-Lxf"/>
-                <constraint firstAttribute="bottom" secondItem="zmY-Ur-qCA" secondAttribute="bottom" id="vqw-ql-mjC"/>
-                <constraint firstItem="zmY-Ur-qCA" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="wfj-lH-hiA"/>
+                <constraint firstItem="zmY-Ur-qCA" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Ty6-XX-vDZ"/>
+                <constraint firstAttribute="trailing" secondItem="zmY-Ur-qCA" secondAttribute="trailing" id="hqP-BT-hn3"/>
+                <constraint firstAttribute="bottom" secondItem="zmY-Ur-qCA" secondAttribute="bottom" id="lVw-pR-WZu"/>
+                <constraint firstItem="zmY-Ur-qCA" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="y3H-EQ-kjt"/>
             </constraints>
             <size key="customSize" width="300" height="200"/>
             <connections>

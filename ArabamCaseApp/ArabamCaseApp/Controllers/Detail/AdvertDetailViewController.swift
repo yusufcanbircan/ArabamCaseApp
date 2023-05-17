@@ -25,31 +25,32 @@ final class AdvertDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = viewModel.detailTitle
-        
         setUpCollectionView()
     }
     
     private func setUpCollectionView() {
-        createCollectionViewLayout()
         collectionView.delegate = self
         collectionView.dataSource = self
+        registerCell()
+        createCollectionViewLayout()
+    }
+    
+    private func registerCell() {
+        AdvertDetailViewControllerViewModel.SectionType.allCases.forEach { section in
+            self.collectionView.register(nibWithCellClass: section.cellClass)
+        }
     }
     
     private func createCollectionViewLayout() {
         let layout = UICollectionViewCompositionalLayout { sectionIndex, _ in
             return self.createSection(for: sectionIndex)
         }
-        self.collectionView.collectionViewLayout = layout
-        self.collectionView.register(nibWithCellClass: PhotoCollectionViewCell.self)
-        self.collectionView.register(nibWithCellClass: InfoCollectionViewCell.self)
-        self.collectionView.register(nibWithCellClass: UserInfoCollectionViewCell.self)
-        self.collectionView.register(nibWithCellClass: SummaryCollectionViewCell.self)
+        collectionView.collectionViewLayout = layout
     }
     
     private func createSection(for sectionIndex: Int) -> NSCollectionLayoutSection {
-        let sectionTypes = viewModel.sections
 
-        switch sectionTypes[sectionIndex] {
+        switch viewModel.sectionAt(section: sectionIndex) {
         case .photo:
             return viewModel.createPhotoSectionLayout()
         case .userInformation:
@@ -57,6 +58,8 @@ final class AdvertDetailViewController: UIViewController {
         case .information:
             return viewModel.createInformationSectionLayout()
         case .summary:
+            return viewModel.createSummarySectionLayout()
+        case .none:
             return viewModel.createSummarySectionLayout()
         }
     }
@@ -66,89 +69,115 @@ final class AdvertDetailViewController: UIViewController {
 extension AdvertDetailViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        viewModel.sections.count
+        return viewModel.numberOfSection
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        let sectionType = viewModel.sections[section]
-        
-        switch sectionType {
-        case .photo(let viewModels):
-            if let viewModels {
-                return viewModels.count
-            }
-            return 1
-        case .userInformation:
-            return 1
-        case .information(let viewModels):
-            return viewModels.count
-        case .summary:
-            return 1
-        }
+        return viewModel.numberOfItemsInSection(section: section)
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let sectionType = viewModel.sections[indexPath.section]
-        
-        switch sectionType {
-        case .photo(let viewModels):
-            let cell = collectionView.dequeueReusableCell(withClass: PhotoCollectionViewCell.self, for: indexPath)
-            if let viewModels {
-                cell.configure(viewModel: viewModels[indexPath.row])
-            }
-            return cell
-            
-        case .userInformation(let viewModel):
-            let cell = collectionView.dequeueReusableCell(withClass: UserInfoCollectionViewCell.self, for: indexPath)
-            cell.setNeedsLayout()
-            cell.layoutIfNeeded()
-    
-            let size = cell.contentView.systemLayoutSizeFitting(CGSize(width: collectionView.bounds.width, height: UIView.layoutFittingCompressedSize.height))
-            
-            var cellFrame = cell.frame
-            cellFrame.size.height = size.height
-            cell.frame = cellFrame
-            cell.configure(viewModel: viewModel)
-            return cell
-            
-        case .information(let viewModels):
-            let cell = collectionView.dequeueReusableCell(withClass: InfoCollectionViewCell.self, for: indexPath)
-            cell.configure(viewModel: viewModels[indexPath.row])
-            return cell
-            
-        case .summary(let viewModel):
-            let cell = collectionView.dequeueReusableCell(withClass: SummaryCollectionViewCell.self, for: indexPath)
-            
-            cell.setNeedsLayout()
-            cell.layoutIfNeeded()
-    
-            let size = cell.contentView.systemLayoutSizeFitting(CGSize(width: collectionView.bounds.width, height: UIView.layoutFittingCompressedSize.height))
-            
-            var cellFrame = cell.frame
-            cellFrame.size.height = size.height
-            cell.frame = cellFrame
-            
-            cell.configure(viewModel: viewModel)
-            return cell
+        switch viewModel.sectionAt(section: indexPath.section) {
+        case .photo:
+            return configurePhotoCell(indexPath: indexPath)
+        case .userInformation:
+            return configureUserInfoCell(indexPath: indexPath)
+        case .information:
+            return UICollectionViewCell()
+        case .summary:
+            return UICollectionViewCell()
+        case .none:
+            return UICollectionViewCell()
         }
+        
+//        let sectionType = viewModel.sections[indexPath.section]
+//
+//        switch sectionType {
+//        case .photo(let viewModels):
+//            let cell = collectionView.dequeueReusableCell(withClass: PhotoCollectionViewCell.self, for: indexPath)
+//            if let viewModels {
+//                cell.configure(viewModel: viewModels[indexPath.row])
+//            }
+//            return cell
+//
+//        case .userInformation(let viewModel):
+//            let cell = collectionView.dequeueReusableCell(withClass: UserInfoCollectionViewCell.self, for: indexPath)
+//            cell.setNeedsLayout()
+//            cell.layoutIfNeeded()
+//
+//            let size = cell.contentView.systemLayoutSizeFitting(CGSize(width: collectionView.bounds.width, height: UIView.layoutFittingCompressedSize.height))
+//
+//            var cellFrame = cell.frame
+//            cellFrame.size.height = size.height
+//            cell.frame = cellFrame
+//            cell.configure(viewModel: viewModel)
+//            return cell
+//
+//        case .information(let viewModels):
+//            let cell = collectionView.dequeueReusableCell(withClass: InfoCollectionViewCell.self, for: indexPath)
+//            cell.configure(viewModel: viewModels[indexPath.row])
+//            return cell
+//
+//        case .summary(let viewModel):
+//            let cell = collectionView.dequeueReusableCell(withClass: SummaryCollectionViewCell.self, for: indexPath)
+//
+//            cell.setNeedsLayout()
+//            cell.layoutIfNeeded()
+//
+//            let size = cell.contentView.systemLayoutSizeFitting(CGSize(width: collectionView.bounds.width, height: UIView.layoutFittingCompressedSize.height))
+//
+//            var cellFrame = cell.frame
+//            cellFrame.size.height = size.height
+//            cell.frame = cellFrame
+//
+//            cell.configure(viewModel: viewModel)
+//            return cell
+//        }
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let sectionType = viewModel.sections[indexPath.section]
-        
-        switch sectionType {
+        switch viewModel.sectionAt(section: indexPath.section) {
         case .photo:
-            self.handleFullScreen(photos: viewModel.photos)
-        case .userInformation:
-            return
-        case .information:
-            return
-        case .summary:
-            return
+            self.handleFullScreen(photos: viewModel.getFullScreenPhotos())
+        default:
+            break
         }
     }
     
-    private func handleFullScreen(photos: [String]) {
+    
+    
+//    private func configureInfoCell(indexPath: IndexPath) -> UICollectionViewCell {
+//        let cell = collectionView.dequeueReusableCell(withClass: InfoCollectionViewCell.self, for: indexPath)
+//        //            cell.configure(viewModel: viewModels[indexPath.row])
+//        //            return cell
+//        let cellModel = InfoCollectionViewCellViewModel(type: <#T##InfoCollectionViewCellViewModel.`Type`#>, value: <#T##String#>)
+//        let cellModel = PhotoCollectionViewCellViewModel(imageUrl: URL(string: url))
+//        cell.configure(viewModel: cellModel)
+//        return cell
+//    }
+    
+    
+}
+
+// MARK: - CollectionView Helper
+extension AdvertDetailViewController {
+    private func configurePhotoCell(indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withClass: PhotoCollectionViewCell.self, for: indexPath)
+        guard let url = viewModel.getAdvertDetailPhoto(for: indexPath.row) else { return UICollectionViewCell() }
+        let cellModel = PhotoCollectionViewCellViewModel(imageUrl: url)
+        cell.configure(viewModel: cellModel)
+        return cell
+    }
+    
+    private func configureUserInfoCell(indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withClass: UserInfoCollectionViewCell.self, for: indexPath)
+        guard let advert = viewModel.getAdvertDetailUserInfo() else { return UICollectionViewCell() }
+        let cellModel = UserInfoCollectionViewCellViewModel(advert: advert)
+        cell.configure(viewModel: cellModel)
+        return cell
+    }
+    
+    private func handleFullScreen(photos: [String]?) {
         // handle push error
         let viewModel = FullScreenViewControllerViewModel(photos: photos)
         let fullScreenVC = FullScreenViewController(viewModel: viewModel)
@@ -157,4 +186,5 @@ extension AdvertDetailViewController: UICollectionViewDelegate, UICollectionView
 //
 //        }
     }
+    
 }

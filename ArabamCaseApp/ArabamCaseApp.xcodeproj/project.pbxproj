@@ -20,11 +20,14 @@
 		BB26C5B02A03F78B00F1138F /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB26C5AF2A03F78B00F1138F /* APIClient.swift */; };
 		BB79C8712A0E1F5A00946B25 /* UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB79C8702A0E1F5A00946B25 /* UICollectionView.swift */; };
 		BB79C8732A0E581C00946B25 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB79C8722A0E581C00946B25 /* Data.swift */; };
+		BB79C87F2A0E762900946B25 /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB79C87D2A0E762900946B25 /* LaunchScreenViewController.swift */; };
+		BB79C8802A0E762900946B25 /* LaunchScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB79C87E2A0E762900946B25 /* LaunchScreenViewController.xib */; };
 		BB867FFA2A06598B00DFB46A /* AdvertListingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB867FF82A06598B00DFB46A /* AdvertListingViewController.swift */; };
 		BB867FFB2A06598B00DFB46A /* AdvertListingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB867FF92A06598B00DFB46A /* AdvertListingViewController.xib */; };
 		BB867FFF2A067A7F00DFB46A /* NSObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB867FFE2A067A7F00DFB46A /* NSObject.swift */; };
 		BB8680012A06824700DFB46A /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8680002A06824700DFB46A /* ImageDownloader.swift */; };
 		BB8680032A069A5E00DFB46A /* AdvertListingViewControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8680022A069A5E00DFB46A /* AdvertListingViewControllerViewModel.swift */; };
+		BB9B68CC2A14D628004C839D /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9B68CB2A14D628004C839D /* Array.swift */; };
 		BBA9B5112A0B93D400C8975B /* UserInfoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA9B50F2A0B93D400C8975B /* UserInfoCollectionViewCell.swift */; };
 		BBA9B5122A0B93D400C8975B /* UserInfoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBA9B5102A0B93D400C8975B /* UserInfoCollectionViewCell.xib */; };
 		BBA9B5142A0B93E100C8975B /* UserInfoCollectionViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA9B5132A0B93E100C8975B /* UserInfoCollectionViewCellViewModel.swift */; };
@@ -93,11 +96,14 @@
 		BB26C5AF2A03F78B00F1138F /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		BB79C8702A0E1F5A00946B25 /* UICollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionView.swift; sourceTree = "<group>"; };
 		BB79C8722A0E581C00946B25 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		BB79C87D2A0E762900946B25 /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
+		BB79C87E2A0E762900946B25 /* LaunchScreenViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LaunchScreenViewController.xib; sourceTree = "<group>"; };
 		BB867FF82A06598B00DFB46A /* AdvertListingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertListingViewController.swift; sourceTree = "<group>"; };
 		BB867FF92A06598B00DFB46A /* AdvertListingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AdvertListingViewController.xib; sourceTree = "<group>"; };
 		BB867FFE2A067A7F00DFB46A /* NSObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSObject.swift; sourceTree = "<group>"; };
 		BB8680002A06824700DFB46A /* ImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
 		BB8680022A069A5E00DFB46A /* AdvertListingViewControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertListingViewControllerViewModel.swift; sourceTree = "<group>"; };
+		BB9B68CB2A14D628004C839D /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 		BBA9B50F2A0B93D400C8975B /* UserInfoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoCollectionViewCell.swift; sourceTree = "<group>"; };
 		BBA9B5102A0B93D400C8975B /* UserInfoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserInfoCollectionViewCell.xib; sourceTree = "<group>"; };
 		BBA9B5132A0B93E100C8975B /* UserInfoCollectionViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoCollectionViewCellViewModel.swift; sourceTree = "<group>"; };
@@ -237,6 +243,7 @@
 		BB26C5AA2A03DF4300F1138F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				BB79C8742A0E719C00946B25 /* LaunchScreen */,
 				BBE7E82C2A09184E007479D8 /* Detail */,
 				BBF675872A06510900639C11 /* Listing */,
 			);
@@ -264,6 +271,15 @@
 			path = Adverts;
 			sourceTree = "<group>";
 		};
+		BB79C8742A0E719C00946B25 /* LaunchScreen */ = {
+			isa = PBXGroup;
+			children = (
+				BB79C87D2A0E762900946B25 /* LaunchScreenViewController.swift */,
+				BB79C87E2A0E762900946B25 /* LaunchScreenViewController.xib */,
+			);
+			path = LaunchScreen;
+			sourceTree = "<group>";
+		};
 		BB867FFD2A067A7100DFB46A /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -272,6 +288,7 @@
 				BBA9B5202A0CDCCE00C8975B /* Int.swift */,
 				BB79C8702A0E1F5A00946B25 /* UICollectionView.swift */,
 				BB79C8722A0E581C00946B25 /* Data.swift */,
+				BB9B68CB2A14D628004C839D /* Array.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -516,6 +533,7 @@
 				BBA9B52D2A0D210200C8975B /* FullScreenPhotoCollectionViewCell.xib in Resources */,
 				BBA9B5192A0BB6BE00C8975B /* SummaryCollectionViewCell.xib in Resources */,
 				BB26C5842A03DEA700F1138F /* LaunchScreen.storyboard in Resources */,
+				BB79C8802A0E762900946B25 /* LaunchScreenViewController.xib in Resources */,
 				BB26C5812A03DEA700F1138F /* Assets.xcassets in Resources */,
 				BBA9B5262A0D1C6F00C8975B /* FullScreenViewController.xib in Resources */,
 				BBE7E8352A091F4D007479D8 /* AdvertDetailViewController.xib in Resources */,
@@ -565,6 +583,7 @@
 				BB79C8712A0E1F5A00946B25 /* UICollectionView.swift in Sources */,
 				BB26C5772A03DEA500F1138F /* SceneDelegate.swift in Sources */,
 				BBA9B5142A0B93E100C8975B /* UserInfoCollectionViewCellViewModel.swift in Sources */,
+				BB9B68CC2A14D628004C839D /* Array.swift in Sources */,
 				BB26C5AC2A03E02C00F1138F /* HTTPMethod.swift in Sources */,
 				BBF675722A04CDAF00639C11 /* AdvertRequest.swift in Sources */,
 				BB79C8732A0E581C00946B25 /* Data.swift in Sources */,
@@ -580,6 +599,7 @@
 				BBA9B5212A0CDCCE00C8975B /* Int.swift in Sources */,
 				BBF6757B2A04D2ED00639C11 /* AdvertListingService.swift in Sources */,
 				BB26C57F2A03DEA500F1138F /* ArabamCaseApp.xcdatamodeld in Sources */,
+				BB79C87F2A0E762900946B25 /* LaunchScreenViewController.swift in Sources */,
 				BBA9B5252A0D1C6F00C8975B /* FullScreenViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

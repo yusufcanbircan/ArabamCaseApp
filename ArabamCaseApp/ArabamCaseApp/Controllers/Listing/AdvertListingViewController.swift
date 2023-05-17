@@ -31,6 +31,11 @@ final class AdvertListingViewController: UIViewController {
         setUpViewModel()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+    
     // MARK: - Private
     
     private func configureUI() {

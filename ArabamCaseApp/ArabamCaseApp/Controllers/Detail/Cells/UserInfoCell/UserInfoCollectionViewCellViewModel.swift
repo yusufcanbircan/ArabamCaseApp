@@ -8,32 +8,53 @@
 import Foundation
 
 final class UserInfoCollectionViewCellViewModel {
+    private let advert: AdvertDetailResponse
     
-    private let name: String
-    private let city: String
-    private let price: String
-    private let title: String
+    var name: String {
+        return getName(advert: advert)
+    }
     
-    public var nameString: String {
+    var city: String {
+        return getCity(advert: advert)
+    }
+    
+    var price: String {
+        return getPrice(advert: advert)
+    }
+    
+    var title: String {
+        return getTitle(advert: advert)
+    }
+    
+    init(advert: AdvertDetailResponse) {
+        self.advert = advert
+//        self.name = getName(advert: advert)
+//        self.city = getCity(advert: advert)
+//        self.title = getTitle(advert: advert)
+//        self.price = getPrice(advert: advert)
+    }
+}
+
+// MARK: - Helper
+extension UserInfoCollectionViewCellViewModel {
+    private func getName(advert: AdvertDetailResponse) -> String {
+        guard let name = advert.userInfo?.nameSurname else { return "-"}
         return name
     }
     
-    public var cityString: String {
-        return city
+    private func getCity(advert: AdvertDetailResponse) -> String {
+        guard let city = advert.location?.cityName, let town = advert.location?.townName else { return "-"}
+        return "\(city)/\(town)"
     }
     
-    public var titleString: String {
-        return title
-    }
-    
-    public var priceString: String {
+    private func getPrice(advert: AdvertDetailResponse) -> String {
+        guard let price = advert.price?.formatNumber() else { return "0"}
         return price
     }
     
-    init(name: String, city: String, price: String, title: String) {
-        self.name = name
-        self.city = city
-        self.price = price
-        self.title = title
+    private func getTitle(advert: AdvertDetailResponse) -> String {
+        guard let title = advert.title else { return "-"}
+        return title
     }
 }
+

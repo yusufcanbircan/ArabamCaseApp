@@ -26,10 +26,10 @@ final class UserInfoCollectionViewCell: UICollectionViewCell {
     }
     
     public func configure(viewModel: UserInfoCollectionViewCellViewModel) {
-        self.nameLabel.text = viewModel.nameString
-        self.cityLabel.text = viewModel.cityString
-        self.priceLabel.text = viewModel.priceString
-        self.titleLabel.text = viewModel.titleString
+        self.nameLabel.text = viewModel.name
+        self.cityLabel.text = viewModel.city
+        self.priceLabel.text = viewModel.price
+        self.titleLabel.text = viewModel.title
     }
 
 }

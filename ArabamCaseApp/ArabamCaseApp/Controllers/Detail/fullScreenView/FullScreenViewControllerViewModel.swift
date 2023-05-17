@@ -10,15 +10,17 @@ import UIKit
 final class FullScreenViewControllerViewModel {
         
     public var cellViewModels: [FullScreenPhotoCollectionViewCellViewModel] = []
-    private var photos: [String]
+    private var photos: [String]?
 
-    init(photos: [String]) {
+    init(photos: [String]?) {
         self.photos = photos
     }
     
     public func handlePhotoModels() {
+        guard let photos else { return }
         for photo in photos {
-            let viewModel = FullScreenPhotoCollectionViewCellViewModel(imageUrl: URL(string: .getPhotoUrl(url: photo, resolution: .high) ?? ""))
+            guard let urlString = photo.getPhotoUrl(resolution: .high), let url = URL(string: urlString) else { return }
+            let viewModel = FullScreenPhotoCollectionViewCellViewModel(imageUrl: url)
             cellViewModels.append(viewModel)
         }
     }

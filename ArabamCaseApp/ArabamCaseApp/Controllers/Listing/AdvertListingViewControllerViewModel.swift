@@ -40,11 +40,11 @@ final class AdvertListingViewControllerViewModel: NSObject {
     // MARK: - Private
     
     private static func getCellViewModel(advert: AdvertListingResponse) -> AdvertListingTableViewCellViewModel {
-        AdvertListingTableViewCellViewModel(
+        return AdvertListingTableViewCellViewModel (
             priceLabel: .getPrice(advert: advert),
             locationLabel: .getCity(advert: advert),
-            titleLabel:  advert.title ?? "",
-            advertImage: URL(string: .getPhotoUrl(url: advert.photo) ?? ""),
+            titleLabel: advert.title ?? "",
+            advertImage: URL(string: advert.photo?.getPhotoUrl() ?? ""),
             advertId: advert.id ?? 0
         )
     }

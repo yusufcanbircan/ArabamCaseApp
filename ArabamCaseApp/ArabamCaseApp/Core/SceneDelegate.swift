@@ -15,10 +15,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
-        let vc = AdvertListingViewController()
-        let navigationController = UINavigationController(rootViewController: vc)
+        let launch = LaunchScreenViewController()
+        let navigationController = UINavigationController(rootViewController: launch)
         let window = UIWindow(windowScene: windowScene)
-        window.rootViewController  = navigationController
+        window.rootViewController = navigationController
         window.makeKeyAndVisible()
         self.window = window
     }

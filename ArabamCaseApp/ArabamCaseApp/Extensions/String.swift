@@ -14,16 +14,18 @@ enum resolution: String {
     case high = "1920x1080"
 }
 
+
+
 extension String {
-    static func getPhotoUrl(url:String?, resolution: resolution = .low) -> String? {
-        let url = url?.replacingOccurrences(of: "{0}", with: resolution.rawValue)
+    func getPhotoUrl(resolution: resolution = .low) -> String? {
+        let url = self.replacingOccurrences(of: "{0}", with: resolution.rawValue)
         return url
     }
     static var unknownCase = "unknown"
     
     static func getObject(advert: AdvertDetailResponse, name: String) -> String {
         guard let properties = advert.properties else { return "-"}
-        var property = properties.first(where: { $0.name == name })?.value ?? "bilinmiyor"
+        let property = properties.first(where: { $0.name == name })?.value ?? "bilinmiyor"
         
         return property == "" ? "-" : property
     }
