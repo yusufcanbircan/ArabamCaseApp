@@ -36,6 +36,13 @@
                                 <color key="textColor" systemColor="tertiaryLabelColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ywm-28-UQf">
+                                <rect key="frame" x="20" y="49" width="343" height="1"/>
+                                <color key="backgroundColor" systemColor="separatorColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="UYF-R8-KPX"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
@@ -43,7 +50,10 @@
                             <constraint firstItem="Qcf-6n-qy2" firstAttribute="centerY" secondItem="bhM-eR-CW2" secondAttribute="centerY" id="7KD-JG-hdZ"/>
                             <constraint firstAttribute="trailing" secondItem="89z-RT-IOO" secondAttribute="trailing" constant="20" id="F2k-GX-QcD"/>
                             <constraint firstItem="Qcf-6n-qy2" firstAttribute="leading" secondItem="bhM-eR-CW2" secondAttribute="leading" constant="20" id="Ra6-Ts-cgO"/>
+                            <constraint firstItem="Ywm-28-UQf" firstAttribute="leading" secondItem="bhM-eR-CW2" secondAttribute="leading" constant="20" id="Tga-Ad-FFQ"/>
+                            <constraint firstAttribute="trailing" secondItem="Ywm-28-UQf" secondAttribute="trailing" constant="20" id="Wlm-2K-a9j"/>
                             <constraint firstItem="89z-RT-IOO" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Qcf-6n-qy2" secondAttribute="trailing" constant="15" id="Xid-i5-E0E"/>
+                            <constraint firstAttribute="bottom" secondItem="Ywm-28-UQf" secondAttribute="bottom" id="gpl-z2-SI1"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -66,6 +76,9 @@
     <resources>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="separatorColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

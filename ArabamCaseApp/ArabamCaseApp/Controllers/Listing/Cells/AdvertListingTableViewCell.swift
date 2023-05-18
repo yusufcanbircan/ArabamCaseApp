@@ -9,10 +9,10 @@ import UIKit
 
 final class AdvertListingTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var priceLabel: UILabel!
-    @IBOutlet weak var locationLabel: UILabel!
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var advertImage: UIImageView!
+    @IBOutlet private weak var priceLabel: UILabel!
+    @IBOutlet private weak var locationLabel: UILabel!
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var advertImage: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -29,7 +29,7 @@ final class AdvertListingTableViewCell: UITableViewCell {
         advertImage.image = nil
     }
     
-    public func configure(with viewModel: AdvertListingTableViewCellViewModel) {
+    func configure(with viewModel: AdvertListingTableViewCellViewModel) {
         priceLabel.text = viewModel.priceLabel
         locationLabel.text = viewModel.locationLabel
         titleLabel.text = viewModel.titleLabel
@@ -48,5 +48,4 @@ final class AdvertListingTableViewCell: UITableViewCell {
             }
         }
     }
-    
 }

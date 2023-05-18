@@ -20,9 +20,25 @@ final class FullScreenPhotoCollectionViewCell: UICollectionViewCell {
         super.prepareForReuse()
         advertImage.image = nil
     }
-    
-    // MARK: - Private
-    
+
+    func configure(viewModel: FullScreenPhotoCollectionViewCellViewModel) {
+        viewModel.fetchImage { [weak self] result in
+            guard let self else { return }
+            switch result {
+            case .success(let data):
+                DispatchQueue.main.async {
+                    self.advertImage.image = UIImage(data: data)
+                }
+            case .failure:
+                break
+            }
+        }
+    }
+
+}
+
+// MARK: - Gesture Helper
+extension FullScreenPhotoCollectionViewCell {
     private func handleZoom() {
         let pinchGesture = UIPinchGestureRecognizer(target: self, action: #selector(handlePinchGesture(_:)))
         advertImage.isUserInteractionEnabled = true
@@ -45,22 +61,4 @@ final class FullScreenPhotoCollectionViewCell: UICollectionViewCell {
             sender.scale = 1
         }
     }
-    
-    
-    // MARK: - Public
-    
-    public func configure(viewModel: FullScreenPhotoCollectionViewCellViewModel) {
-        viewModel.fetchImage { [weak self] result in
-            guard let self else { return }
-            switch result {
-            case .success(let data):
-                DispatchQueue.main.async {
-                    self.advertImage.image = UIImage(data: data)
-                }
-            case .failure:
-                break
-            }
-        }
-    }
-
 }

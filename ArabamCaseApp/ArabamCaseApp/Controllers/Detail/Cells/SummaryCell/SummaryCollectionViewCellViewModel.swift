@@ -10,9 +10,7 @@ import Foundation
 final class SummaryCollectionViewCellViewModel {
     private let summary: String
     
-    public var summaryString: String {
-        return summary
-    }
+    var summaryString: String { summary }
     
     init(summary: String) {
         self.summary = summary

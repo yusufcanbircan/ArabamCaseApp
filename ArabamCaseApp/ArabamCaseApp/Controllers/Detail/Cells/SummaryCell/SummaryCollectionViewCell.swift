@@ -9,7 +9,7 @@ import UIKit
 
 final class SummaryCollectionViewCell: UICollectionViewCell {
 
-    @IBOutlet weak var summaryLabel: UILabel!
+    @IBOutlet private weak var summaryLabel: UILabel!
     
     override func awakeFromNib() {
     }
@@ -18,7 +18,7 @@ final class SummaryCollectionViewCell: UICollectionViewCell {
         summaryLabel.text = nil
     }
     
-    public func configure(viewModel: SummaryCollectionViewCellViewModel) {
+    func configure(viewModel: SummaryCollectionViewCellViewModel) {
         self.summaryLabel.attributedText = viewModel.summaryString.html2AttributedString
     }
 }

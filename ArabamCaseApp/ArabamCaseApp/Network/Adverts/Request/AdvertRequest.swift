@@ -8,7 +8,7 @@
 import Foundation
 
 enum AdvertRequest {
-    case listing(sort: Int, sortDirection: Int, take: Int)
+    case listing(sort: Int, sortDirection: Int, take: Int, skip: Int)
     case detail(id: String)
 }
 
@@ -24,8 +24,8 @@ extension AdvertRequest: APIRequest {
     
     var queryItems: [String: Any?]? {
         switch self {
-        case .listing(let sort, let sortDirection, let take):
-            return ["sort": sort, "sortDirection": sortDirection, "take": take]
+        case .listing(let sort, let sortDirection, let take, let skip):
+            return ["sort": sort, "sortDirection": sortDirection, "take": take, "skip": skip]
         case .detail(let id):
             return ["id": id as String]
         }

@@ -10,21 +10,10 @@ import Foundation
 final class UserInfoCollectionViewCellViewModel {
     private let advert: AdvertDetailResponse
     
-    var name: String {
-        return getName(advert: advert)
-    }
-    
-    var city: String {
-        return getCity(advert: advert)
-    }
-    
-    var price: String {
-        return getPrice(advert: advert)
-    }
-    
-    var title: String {
-        return getTitle(advert: advert)
-    }
+    var name: String { getName(advert: advert) }
+    var city: String { getCity(advert: advert) }
+    var price: String { getPrice(advert: advert) }
+    var title: String { getTitle(advert: advert) }
     
     init(advert: AdvertDetailResponse) {
         self.advert = advert
@@ -34,18 +23,18 @@ final class UserInfoCollectionViewCellViewModel {
 // MARK: - Helper
 extension UserInfoCollectionViewCellViewModel {
     private func getName(advert: AdvertDetailResponse) -> String {
-        guard let name = advert.userInfo?.nameSurname else { return "-"}
+        guard let userInfo = advert.userInfo, let name = userInfo.nameSurname else { return "-"}
         return name
     }
     
     private func getCity(advert: AdvertDetailResponse) -> String {
-        guard let city = advert.location?.cityName, let town = advert.location?.townName else { return "-"}
+        guard let location = advert.location, let city = location.cityName, let town = location.townName else { return "-" }
         return "\(city)/\(town)"
     }
     
     private func getPrice(advert: AdvertDetailResponse) -> String {
-        guard let price = advert.price?.formatNumber() else { return "0 TL"}
-        return "\(price) TL"
+        guard let price = advert.price else { return "0 TL" }
+        return "\(price.formatNumber()) TL"
     }
     
     private func getTitle(advert: AdvertDetailResponse) -> String {

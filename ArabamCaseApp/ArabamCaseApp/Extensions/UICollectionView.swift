@@ -7,7 +7,7 @@
 
 import UIKit
 
-public extension UICollectionView {
+extension UICollectionView {
     
     /// SwifterSwift: Dequeue reusable UICollectionViewCell using class name.
     ///

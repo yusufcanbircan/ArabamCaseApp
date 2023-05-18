@@ -9,8 +9,8 @@ import UIKit
 
 final class InfoCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var valueLabel: UILabel!
+    @IBOutlet private weak var nameLabel: UILabel!
+    @IBOutlet private weak var valueLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -21,9 +21,8 @@ final class InfoCollectionViewCell: UICollectionViewCell {
         valueLabel.text = nil
     }
     
-    public func configure(viewModel: InfoCollectionViewCellViewModel) {
+    func configure(viewModel: InfoCollectionViewCellViewModel) {
         self.valueLabel.text = viewModel.value
         self.nameLabel.text = viewModel.name
     }
-
 }

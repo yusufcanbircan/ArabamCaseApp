@@ -45,6 +45,7 @@
 		BBC013B82A09873100D21DBE /* InfoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBC013B62A09873100D21DBE /* InfoCollectionViewCell.xib */; };
 		BBC013BA2A09874100D21DBE /* InfoCollectionViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC013B92A09874100D21DBE /* InfoCollectionViewCellViewModel.swift */; };
 		BBC8F1032A0D7DF300E7E366 /* FullScreenViewControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC8F1022A0D7DF300E7E366 /* FullScreenViewControllerViewModel.swift */; };
+		BBCB65C02A164F7F00AEB143 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBCB65BF2A164F7F00AEB143 /* UITableView.swift */; };
 		BBE7E8342A091F4D007479D8 /* AdvertDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE7E8322A091F4D007479D8 /* AdvertDetailViewController.swift */; };
 		BBE7E8352A091F4D007479D8 /* AdvertDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBE7E8332A091F4D007479D8 /* AdvertDetailViewController.xib */; };
 		BBE7E8382A0920C1007479D8 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE7E8362A0920C1007479D8 /* PhotoCollectionViewCell.swift */; };
@@ -121,6 +122,7 @@
 		BBC013B62A09873100D21DBE /* InfoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InfoCollectionViewCell.xib; sourceTree = "<group>"; };
 		BBC013B92A09874100D21DBE /* InfoCollectionViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCollectionViewCellViewModel.swift; sourceTree = "<group>"; };
 		BBC8F1022A0D7DF300E7E366 /* FullScreenViewControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenViewControllerViewModel.swift; sourceTree = "<group>"; };
+		BBCB65BF2A164F7F00AEB143 /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
 		BBE7E8322A091F4D007479D8 /* AdvertDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertDetailViewController.swift; sourceTree = "<group>"; };
 		BBE7E8332A091F4D007479D8 /* AdvertDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AdvertDetailViewController.xib; sourceTree = "<group>"; };
 		BBE7E8362A0920C1007479D8 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -289,6 +291,7 @@
 				BB79C8702A0E1F5A00946B25 /* UICollectionView.swift */,
 				BB79C8722A0E581C00946B25 /* Data.swift */,
 				BB9B68CB2A14D628004C839D /* Array.swift */,
+				BBCB65BF2A164F7F00AEB143 /* UITableView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -313,7 +316,7 @@
 			path = SummaryCell;
 			sourceTree = "<group>";
 		};
-		BBA9B5222A0D1C0D00C8975B /* fullScreenView */ = {
+		BBA9B5222A0D1C0D00C8975B /* FullScreenView */ = {
 			isa = PBXGroup;
 			children = (
 				BBA9B5292A0D20C100C8975B /* Cell */,
@@ -321,7 +324,7 @@
 				BBA9B5232A0D1C6F00C8975B /* FullScreenViewController.swift */,
 				BBA9B5242A0D1C6F00C8975B /* FullScreenViewController.xib */,
 			);
-			path = fullScreenView;
+			path = FullScreenView;
 			sourceTree = "<group>";
 		};
 		BBA9B5292A0D20C100C8975B /* Cell */ = {
@@ -357,7 +360,7 @@
 		BBE7E82C2A09184E007479D8 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
-				BBA9B5222A0D1C0D00C8975B /* fullScreenView */,
+				BBA9B5222A0D1C0D00C8975B /* FullScreenView */,
 				BBE7E82D2A09185A007479D8 /* Cells */,
 				BBE7E83C2A092372007479D8 /* AdvertDetailViewControllerViewModel.swift */,
 				BBE7E8322A091F4D007479D8 /* AdvertDetailViewController.swift */,
@@ -593,6 +596,7 @@
 				BBA9B52F2A0D384800C8975B /* FullScreenPhotoCollectionViewCellViewModel.swift in Sources */,
 				BBA9B51B2A0BB76D00C8975B /* SummaryCollectionViewCellViewModel.swift in Sources */,
 				BBE7E8342A091F4D007479D8 /* AdvertDetailViewController.swift in Sources */,
+				BBCB65C02A164F7F00AEB143 /* UITableView.swift in Sources */,
 				BB867FFA2A06598B00DFB46A /* AdvertListingViewController.swift in Sources */,
 				BBE7E83B2A0921A8007479D8 /* PhotoCollectionViewCellViewModel.swift in Sources */,
 				BB867FFF2A067A7F00DFB46A /* NSObject.swift in Sources */,

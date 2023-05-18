@@ -19,7 +19,7 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="YBL-aR-8cQ">
-                        <rect key="frame" x="0.0" y="0.0" width="405" height="60"/>
+                        <rect key="frame" x="0.0" y="5" width="405" height="55"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pZM-Ae-8cQ">
                                 <rect key="frame" x="0.0" y="0.0" width="405" height="1"/>
@@ -29,14 +29,14 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tbk-qX-G54">
-                                <rect key="frame" x="0.0" y="59" width="405" height="1"/>
+                                <rect key="frame" x="0.0" y="54" width="405" height="1"/>
                                 <color key="backgroundColor" systemColor="separatorColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="RN0-9p-H2Z"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" showsExpansionTextWhenTruncated="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g1E-TY-SdV">
-                                <rect key="frame" x="20" y="21" width="365" height="20.333333333333329"/>
+                                <rect key="frame" x="20" y="21" width="365" height="15.333333333333336"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -59,11 +59,12 @@
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="YBL-aR-8cQ" secondAttribute="bottom" id="Ks7-ao-8J6"/>
+                <constraint firstItem="YBL-aR-8cQ" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="atX-be-Wxq"/>
                 <constraint firstItem="YBL-aR-8cQ" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="mzF-83-gTs"/>
                 <constraint firstAttribute="trailing" secondItem="YBL-aR-8cQ" secondAttribute="trailing" id="ntf-g4-XQo"/>
-                <constraint firstItem="YBL-aR-8cQ" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="wOI-Ee-tVt"/>
             </constraints>
             <size key="customSize" width="405" height="60"/>
             <connections>

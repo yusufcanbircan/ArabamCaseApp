@@ -13,8 +13,7 @@ protocol AdvertListingViewControllerProtocol: AnyObject {
 
 final class AdvertListingViewController: UIViewController {
     
-    // UI Elements
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet private weak var tableView: UITableView!
     
     private let pickerView = UIPickerView(frame: CGRect(x: 0, y: UIScreen.main.bounds.height, width: UIScreen.main.bounds.width, height: 216))
     private let toolbar = UIToolbar(frame: CGRect(x: 0, y: UIScreen.main.bounds.height, width: UIScreen.main.bounds.width, height: 44))
@@ -25,10 +24,7 @@ final class AdvertListingViewController: UIViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureUI()
-        configureTableView()
-        configurePickerView()
-        setUpViewModel()
+        didLoad()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -37,7 +33,13 @@ final class AdvertListingViewController: UIViewController {
     }
     
     // MARK: - Private
-    
+    private func didLoad() {
+        configureUI()
+        configureTableView()
+        configurePickerView()
+        setUpViewModel()
+    }
+
     private func configureUI() {
         title = "İlanlar"
         setUpRightButtonItem()
@@ -46,6 +48,49 @@ final class AdvertListingViewController: UIViewController {
     private func setUpViewModel() {
         viewModel.delegate = self
         viewModel.fetchListingAdverts()
+    }
+}
+
+// MARK: - TableViewDelegate, TableViewDataSource
+extension AdvertListingViewController: UITableViewDelegate, UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        viewModel.numberOfSection
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        viewModel.numberOfItemsInSection(section: section)
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return configureListingCell(indexPath: indexPath)
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        guard let advert = viewModel.didSelectRowAt(indexPath: indexPath.row) else { return }
+        self.didSelectAdvert(advert)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        view.frame.width/4
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row == viewModel.numberOfItemsInSection(section: 1) - 3 {
+            self.viewModel.fetchListingAdverts()
+        }
+    }
+}
+
+// MARK: - TableView Helper
+extension AdvertListingViewController {
+    private func configureListingCell(indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withClass: AdvertListingTableViewCell.self, for: indexPath)
+        
+        guard let cellResponse = viewModel.getListingCellAdvert(for: indexPath.row) else { return UITableViewCell()}
+        let cellModel = AdvertListingTableViewCellViewModel(advertResponse: cellResponse)
+        cell.configure(with: cellModel)
+        return cell
     }
     
     private func configureTableView() {
@@ -56,46 +101,11 @@ final class AdvertListingViewController: UIViewController {
         let nib = UINib(nibName: AdvertListingTableViewCell.className, bundle: nil)
         self.tableView.register(nib, forCellReuseIdentifier: AdvertListingTableViewCell.className)
     }
-
-}
-
-// MARK: - TableView
-extension AdvertListingViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        self.viewModel.cellViewModels.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: AdvertListingTableViewCell.className, for: indexPath) as? AdvertListingTableViewCell {
-            let model = viewModel.cellViewModels[indexPath.row]
-            cell.configure(with: model)
-            return cell
-        }
-        return UITableViewCell()
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        let advert = viewModel.cellViewModels[indexPath.row]
-        self.didSelectAdvert(advert.advertId)
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        view.frame.width/4
-    }
-    
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if indexPath.row == viewModel.cellViewModels.count - 1 {
-            DispatchQueue.global(qos: .userInitiated).asyncAfter(deadline: .now() + 0.4) {
-                self.viewModel.fetchListingAdverts()
-            }
-        }
-    }
 }
 
 // MARK: - PickerViewDelegate
-
 extension AdvertListingViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    
     private func configurePickerView() {
         pickerView.delegate = self
         pickerView.dataSource = self
@@ -111,7 +121,7 @@ extension AdvertListingViewController: UIPickerViewDelegate, UIPickerViewDataSou
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        component == 0 ? viewModel.sortingTypes[row] : viewModel.sortingDirections[row]
+        component == 0 ? AdvertListingViewControllerViewModel.sortingType.names[row] : AdvertListingViewControllerViewModel.sortingDirection.names[row]
     }
 }
 
@@ -144,7 +154,6 @@ extension AdvertListingViewController {
 // MARK: - AdvertListingViewControllerViewModelDelegate
 extension AdvertListingViewController: AdvertListingViewControllerViewModelDelegate {
     func didLoadAdverts(isInitial: Bool) {
-        
         tableView.reloadData()
         if isInitial {
             tableView.isHidden = false
@@ -156,7 +165,6 @@ extension AdvertListingViewController: AdvertListingViewControllerViewModelDeleg
 }
 
 // MARK: - RightBarButtonItems
-
 extension AdvertListingViewController {
     private func setUpRightButtonItem() {
         navigationItem.rightBarButtonItem = UIBarButtonItem(

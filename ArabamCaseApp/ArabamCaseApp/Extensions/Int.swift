@@ -11,14 +11,8 @@ extension Int {
     func formatNumber() -> String {
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .decimal
-        var str = numberFormatter.string(from: NSNumber(value: self)) ?? "\(self)"
-        str = str.replacingOccurrences(of: ",", with: ".")
-        return str
-    }
-    
-    func formatAsDecimal() -> String {
-        let numberFormatter = NumberFormatter()
-        numberFormatter.numberStyle = .decimal
-        return numberFormatter.string(from: NSNumber(value: self)) ?? "\(self)"
+        var formatted = numberFormatter.string(from: NSNumber(value: self)) ?? "\(self)"
+        formatted = formatted.replacingOccurrences(of: ",", with: ".")
+        return formatted
     }
 }

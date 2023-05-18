@@ -10,13 +10,9 @@ import UIKit
 final class InfoCollectionViewCellViewModel {
     private let property: Property
     
-    var name: String {
-        return getName()
-    }
+    var name: String { getName() }
     
-    var value: String {
-        return getValue()
-    }
+    var value: String { getValue() }
     
     init(property: Property) {
         self.property = property
@@ -26,12 +22,19 @@ final class InfoCollectionViewCellViewModel {
 extension InfoCollectionViewCellViewModel {
     private func getName() -> String {
         guard let name = property.name else { return "-"}
-        return name
+        switch name {
+        case "km": return "km"
+        case "color": return "renk"
+        case "year": return "yıl"
+        case "gear": return "vites"
+        case "fuel": return "yakıt"
+        default: return "-"
+        }
     }
     
     private func getValue() -> String {
         guard let value = property.value else { return "-"}
-        return value
+        return value == "" ? "-" : value
     }
 }
 

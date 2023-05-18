@@ -9,7 +9,7 @@ import UIKit
 
 final class PhotoCollectionViewCell: UICollectionViewCell {
 
-    @IBOutlet weak var advertImages: UIImageView!
+    @IBOutlet private weak var advertImages: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -20,7 +20,7 @@ final class PhotoCollectionViewCell: UICollectionViewCell {
         advertImages.image = nil
     }
     
-    public func configure(viewModel: PhotoCollectionViewCellViewModel) {
+    func configure(viewModel: PhotoCollectionViewCellViewModel) {
         viewModel.fetchImage { [weak self] result in
             guard let self else { return }
             switch result {
@@ -33,5 +33,4 @@ final class PhotoCollectionViewCell: UICollectionViewCell {
             }
         }
     }
-
 }

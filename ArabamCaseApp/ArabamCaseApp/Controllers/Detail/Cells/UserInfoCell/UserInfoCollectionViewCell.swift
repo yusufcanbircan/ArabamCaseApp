@@ -9,10 +9,10 @@ import UIKit
 
 final class UserInfoCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var cityLabel: UILabel!
-    @IBOutlet weak var priceLabel: UILabel!
-    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet private weak var nameLabel: UILabel!
+    @IBOutlet private weak var cityLabel: UILabel!
+    @IBOutlet private weak var priceLabel: UILabel!
+    @IBOutlet private weak var titleLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -25,7 +25,7 @@ final class UserInfoCollectionViewCell: UICollectionViewCell {
         titleLabel.text = nil
     }
     
-    public func configure(viewModel: UserInfoCollectionViewCellViewModel) {
+    func configure(viewModel: UserInfoCollectionViewCellViewModel) {
         self.nameLabel.text = viewModel.name
         self.cityLabel.text = viewModel.city
         self.priceLabel.text = viewModel.price

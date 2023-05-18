@@ -17,10 +17,6 @@ final class AdvertDetailViewControllerViewModel {
     
     private var sections: [SectionType] = []
     
-    public var detailTitle: String {
-        return advert?.modelName ?? "ilan detayı"
-    }
-    
     // MARK: - Init
     init(advert: AdvertDetailResponse) {
         self.advert = advert
@@ -39,11 +35,13 @@ extension AdvertDetailViewControllerViewModel: AdvertDetailViewDataSourceProtoco
     func numberOfItemsInSection(section: Int) -> Int {
         switch sectionAt(section: section) {
         case .photo:
-            return advert?.photos?.count ?? 0
+            guard let advert, let photos = advert.photos else { return 0 }
+            return photos.count
         case .userInformation:
             return 1
         case .information:
-            return advert?.properties?.count ?? 0
+            guard let advert, let properties = advert.properties else { return 0 }
+            return properties.count
         case .summary:
             return hasSummary() ? 1 : 0
         }
@@ -54,8 +52,9 @@ extension AdvertDetailViewControllerViewModel: AdvertDetailViewDataSourceProtoco
         return sections[section]
     }
     
-    private func hasSummary() -> Bool{
-        return advert?.text != nil && advert?.text != ""
+    private func hasSummary() -> Bool {
+        guard let advert, let text = advert.text, !text.isEmpty else { return false }
+        return true
     }
     
     private func configureSections(hasSummary: Bool) {
@@ -66,7 +65,7 @@ extension AdvertDetailViewControllerViewModel: AdvertDetailViewDataSourceProtoco
 // MARK: - CollectionView Datasource
 extension AdvertDetailViewControllerViewModel {
     func getAdvertDetailPhoto(for index: Int) -> URL? {
-        guard let photos = advert?.photos, let urlString = photos[index].getPhotoUrl(resolution: .medium),
+        guard let advert, let photos = advert.photos, let urlString = photos[index].getPhotoUrl(resolution: .medium),
               let url = URL(string: urlString) else { return nil }
         return url
     }
@@ -77,18 +76,25 @@ extension AdvertDetailViewControllerViewModel {
     }
     
     func getAdvertProperty(for index: Int) -> Property? {
-        guard let property = advert?.properties else { return nil }
+        guard let advert, let property = advert.properties else { return nil }
         return property[index]
     }
     
     func getAdvertSummary() -> String? {
-        guard let summary = advert?.text else { return nil}
+        guard let advert, let summary = advert.text else { return nil}
         return summary.getSummary()
     }
     
     // MARK - FullScreenDatasource
     func getFullScreenPhotos() -> [String]? {
-        return advert?.photos
+        guard let advert else { return nil }
+        return advert.photos
+    }
+    
+    // MARK: - Title
+    func getDetailTitle() -> String {
+        guard let advert, let title = advert.modelName else { return "ilan detayı" }
+        return title
     }
 }
 
@@ -122,13 +128,6 @@ extension AdvertDetailViewControllerViewModel {
             )
         )
         
-        item.contentInsets = NSDirectionalEdgeInsets(
-            top: 0,
-            leading: 0,
-            bottom: 0,
-            trailing: 0
-        )
-        
         let group = NSCollectionLayoutGroup.horizontal(
             layoutSize: NSCollectionLayoutSize(
                 widthDimension: .fractionalWidth(1.0),
@@ -145,10 +144,9 @@ extension AdvertDetailViewControllerViewModel {
         let item = NSCollectionLayoutItem(
             layoutSize: NSCollectionLayoutSize(
                 widthDimension: .fractionalWidth(1.0),
-                heightDimension: .fractionalHeight(1.0)
+                heightDimension: .estimated(130)
             )
         )
-        item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 5, trailing: 0)
         
         let group = NSCollectionLayoutGroup.horizontal(
             layoutSize: NSCollectionLayoutSize(
@@ -168,8 +166,6 @@ extension AdvertDetailViewControllerViewModel {
             )
         )
         
-        item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
-        
         let group = NSCollectionLayoutGroup.horizontal(
             layoutSize: NSCollectionLayoutSize(
                 widthDimension: .fractionalWidth(1.0),
@@ -187,8 +183,6 @@ extension AdvertDetailViewControllerViewModel {
                 heightDimension: .estimated(150)
             )
         )
-        
-        item.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 0, bottom: 0, trailing: 0)
         
         let group = NSCollectionLayoutGroup.horizontal(
             layoutSize: NSCollectionLayoutSize(

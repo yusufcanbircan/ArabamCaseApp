@@ -14,38 +14,10 @@ enum resolution: String {
     case high = "1920x1080"
 }
 
-
-
 extension String {
     func getPhotoUrl(resolution: resolution = .low) -> String? {
         let url = self.replacingOccurrences(of: "{0}", with: resolution.rawValue)
         return url
-    }
-    static var unknownCase = "unknown"
-    
-    static func getObject(advert: AdvertDetailResponse, name: String) -> String {
-        guard let properties = advert.properties else { return "-"}
-        let property = properties.first(where: { $0.name == name })?.value ?? "bilinmiyor"
-        
-        return property == "" ? "-" : property
-    }
-    
-    static func getCity(advert: AdvertDetailResponse) -> String {
-        "\(advert.location?.townName ?? "")/\(advert.location?.cityName ?? "")"
-    }
-    
-    static func getPrice(advert: AdvertDetailResponse) -> String {
-        guard let price = advert.price?.formatNumber() else { return "0 TL"}
-        return "\(price) TL"
-    }
-    
-    static func getCity(advert: AdvertListingResponse) -> String {
-        "\(advert.location?.townName ?? "")/\(advert.location?.cityName ?? "")"
-    }
-    
-    static func getPrice(advert: AdvertListingResponse) -> String {
-        guard let price = advert.price?.formatNumber() else { return "0 TL"}
-        return "\(price) TL"
     }
     
     func getSummary() -> String {
@@ -60,6 +32,7 @@ extension String {
     var html2AttributedString: NSAttributedString? {
         Data(utf8).html2AttributedString
     }
+    
     var html2String: String {
         html2AttributedString?.string ?? ""
     }

@@ -9,13 +9,13 @@ import UIKit
 
 final class FullScreenViewController: UIViewController {
     
-    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet private weak var collectionView: UICollectionView!
     
     private let viewModel: FullScreenViewControllerViewModel
     
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel.handlePhotoModels()
         setUpCollectionView()
     }
     
@@ -29,6 +29,7 @@ final class FullScreenViewController: UIViewController {
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
+    // MARK: - Init
     required init(viewModel: FullScreenViewControllerViewModel) {
         self.viewModel = viewModel
         super.init(nibName: String(describing: type(of: self)), bundle: Bundle(for: Self.self))
@@ -38,11 +39,31 @@ final class FullScreenViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    @IBAction func buttonTapped(_ sender: Any) {
+    // MARK: - IBAction
+    @IBAction private func buttonTapped(_ sender: Any) {
         navigationController?.popViewController(animated: true)
     }
+}
+
+// MARK: - CollectionViewDelegate, CollectionViewDataSource
+extension FullScreenViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        viewModel.numberOfSection
+    }
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        viewModel.numberOfItemsInSection(section: section)
+    }
     
-    // MARK: - Private
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withClass: FullScreenPhotoCollectionViewCell.self, for: indexPath)
+        let cellModel = FullScreenPhotoCollectionViewCellViewModel(imageUrl: viewModel.getAdvertPhoto(for: indexPath.row))
+        cell.configure(viewModel: cellModel)
+        return cell
+    }
+}
+
+// MARK - CollectionView Helper
+extension FullScreenViewController {
     private func setUpCollectionView() {
         collectionView.dataSource = self
         collectionView.delegate = self
@@ -57,22 +78,4 @@ final class FullScreenViewController: UIViewController {
         
         collectionView.collectionViewLayout = layout
     }
-
-}
-
-extension FullScreenViewController: UICollectionViewDelegate, UICollectionViewDataSource {
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        1
-    }
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        viewModel.cellViewModels.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withClass: FullScreenPhotoCollectionViewCell.self, for: indexPath)
-        cell.configure(viewModel: viewModel.cellViewModels[indexPath.row])
-        return cell
-    }
-    
-    
 }
