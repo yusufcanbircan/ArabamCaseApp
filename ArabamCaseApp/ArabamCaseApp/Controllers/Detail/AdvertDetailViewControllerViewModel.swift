@@ -9,9 +9,10 @@ import UIKit
 
 protocol AdvertDetailViewDataSourceProtocol {
     var numberOfSection: Int { get }
+    func numberOfItemsInSection(section: Int) -> Int
 }
 
-final class AdvertDetailViewControllerViewModel{
+final class AdvertDetailViewControllerViewModel {
     let advert: AdvertDetailResponse?
     
     private var sections: [SectionType] = []
@@ -28,18 +29,6 @@ final class AdvertDetailViewControllerViewModel{
     
     private func didInit() {
         configureSections(hasSummary: hasSummary())
-        setUpSections()
-    }
-    
-    // MARK: - Private
-    private func setUpSections() {
-        enum `Type`: String {
-            case km
-            case color
-            case year
-            case gear
-            case fuel
-        }
     }
 }
 
@@ -54,11 +43,9 @@ extension AdvertDetailViewControllerViewModel: AdvertDetailViewDataSourceProtoco
         case .userInformation:
             return 1
         case .information:
-            return 0
+            return advert?.properties?.count ?? 0
         case .summary:
-            return 0
-        case .none:
-            return 0
+            return hasSummary() ? 1 : 0
         }
     }
     
@@ -68,16 +55,11 @@ extension AdvertDetailViewControllerViewModel: AdvertDetailViewDataSourceProtoco
     }
     
     private func hasSummary() -> Bool{
-        return advert?.text != nil
+        return advert?.text != nil && advert?.text != ""
     }
     
     private func configureSections(hasSummary: Bool) {
         sections = hasSummary ? [.photo, .userInformation, .information, .summary] : [.photo, .userInformation, .information]
-    }
-    
-    // MARK - FullScreenDatasource
-    func getFullScreenPhotos() -> [String]? {
-        return advert?.photos
     }
 }
 
@@ -90,17 +72,30 @@ extension AdvertDetailViewControllerViewModel {
     }
     
     func getAdvertDetailUserInfo() -> AdvertDetailResponse? {
-        guard let advert else { return nil}
+        guard let advert else { return nil }
         return advert
     }
     
+    func getAdvertProperty(for index: Int) -> Property? {
+        guard let property = advert?.properties else { return nil }
+        return property[index]
+    }
     
+    func getAdvertSummary() -> String? {
+        guard let summary = advert?.text else { return nil}
+        return summary.getSummary()
+    }
+    
+    // MARK - FullScreenDatasource
+    func getFullScreenPhotos() -> [String]? {
+        return advert?.photos
+    }
 }
 
 // MARK: - SectionType Enum
 extension AdvertDetailViewControllerViewModel {
     enum SectionType: CaseIterable {
-        case photo, userInformation, information, summary, none
+        case photo, userInformation, information, summary
         
         var cellClass: UICollectionViewCell.Type {
             switch self {
@@ -112,8 +107,6 @@ extension AdvertDetailViewControllerViewModel {
                 return InfoCollectionViewCell.self
             case .summary:
                 return SummaryCollectionViewCell.self
-            case .none:
-                return UICollectionViewCell.self
             }
         }
     }
@@ -191,7 +184,7 @@ extension AdvertDetailViewControllerViewModel {
         let item = NSCollectionLayoutItem(
             layoutSize: NSCollectionLayoutSize(
                 widthDimension: .fractionalWidth(1.0),
-                heightDimension: .fractionalHeight(1.0)
+                heightDimension: .estimated(150)
             )
         )
         
@@ -200,7 +193,7 @@ extension AdvertDetailViewControllerViewModel {
         let group = NSCollectionLayoutGroup.horizontal(
             layoutSize: NSCollectionLayoutSize(
                 widthDimension: .fractionalWidth(1.0),
-                heightDimension: .estimated(120)
+                heightDimension: .estimated(150)
             ), subitems: [item])
         let section = NSCollectionLayoutSection(group: group)
         

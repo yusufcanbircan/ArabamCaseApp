@@ -22,8 +22,8 @@ final class InfoCollectionViewCell: UICollectionViewCell {
     }
     
     public func configure(viewModel: InfoCollectionViewCellViewModel) {
-        self.valueLabel.text = viewModel.displayValue
-        self.nameLabel.text = viewModel.title
+        self.valueLabel.text = viewModel.value
+        self.nameLabel.text = viewModel.name
     }
 
 }

@@ -35,7 +35,8 @@ extension String {
     }
     
     static func getPrice(advert: AdvertDetailResponse) -> String {
-        "\(Int.formatNumber(number: advert.price ?? 0)) TL"
+        guard let price = advert.price?.formatNumber() else { return "0 TL"}
+        return "\(price) TL"
     }
     
     static func getCity(advert: AdvertListingResponse) -> String {
@@ -43,12 +44,12 @@ extension String {
     }
     
     static func getPrice(advert: AdvertListingResponse) -> String {
-        "\(Int.formatNumber(number: advert.price ?? 0)) TL"
+        guard let price = advert.price?.formatNumber() else { return "0 TL"}
+        return "\(price) TL"
     }
     
-    static func getSummary(advert: AdvertDetailResponse) -> String {
-        guard let text = advert.text else { return ""}
-        return text == "" ? "Bu ilana detay eklenmemiş!" : text.modifyHtmlContentWithCenteredArial(fontSize: 13)
+    func getSummary() -> String {
+        return self == "" ? "" : self.modifyHtmlContentWithCenteredArial(fontSize: 13)
     }
     
     func modifyHtmlContentWithCenteredArial(fontSize: Int) -> String {

@@ -8,45 +8,30 @@
 import UIKit
 
 final class InfoCollectionViewCellViewModel {
-    private let type: `Type`
-    private let value: String
+    private let property: Property
     
-    public var title: String {
-        type.displayTitle
+    var name: String {
+        return getName()
     }
     
-    public var displayValue: String {
-        return value
+    var value: String {
+        return getValue()
     }
     
-    enum `Type`: String {
-        case km
-        case color
-        case year
-        case gear
-        case fuel
-        case owner
-        case model
-        case date
-        
-        var displayTitle: String {
-            
-            switch self {
-            case .km: return "km"
-            case .color: return "renk"
-            case .date: return "tarih"
-            case .fuel: return "yakıt"
-            case .gear: return "vites"
-            case .model: return "model"
-            case .owner: return "sahibi"
-            case .year: return "yıl"
-                
-            }
-        }
-    }
-    
-    init(type: `Type`, value: String) {
-        self.type = type
-        self.value = value
+    init(property: Property) {
+        self.property = property
     }
 }
+
+extension InfoCollectionViewCellViewModel {
+    private func getName() -> String {
+        guard let name = property.name else { return "-"}
+        return name
+    }
+    
+    private func getValue() -> String {
+        guard let value = property.value else { return "-"}
+        return value
+    }
+}
+

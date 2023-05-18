@@ -28,10 +28,6 @@ final class UserInfoCollectionViewCellViewModel {
     
     init(advert: AdvertDetailResponse) {
         self.advert = advert
-//        self.name = getName(advert: advert)
-//        self.city = getCity(advert: advert)
-//        self.title = getTitle(advert: advert)
-//        self.price = getPrice(advert: advert)
     }
 }
 
@@ -48,8 +44,8 @@ extension UserInfoCollectionViewCellViewModel {
     }
     
     private func getPrice(advert: AdvertDetailResponse) -> String {
-        guard let price = advert.price?.formatNumber() else { return "0"}
-        return price
+        guard let price = advert.price?.formatNumber() else { return "0 TL"}
+        return "\(price) TL"
     }
     
     private func getTitle(advert: AdvertDetailResponse) -> String {

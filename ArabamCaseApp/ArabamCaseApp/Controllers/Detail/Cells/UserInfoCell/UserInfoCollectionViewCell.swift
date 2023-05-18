@@ -31,5 +31,4 @@ final class UserInfoCollectionViewCell: UICollectionViewCell {
         self.priceLabel.text = viewModel.price
         self.titleLabel.text = viewModel.title
     }
-
 }

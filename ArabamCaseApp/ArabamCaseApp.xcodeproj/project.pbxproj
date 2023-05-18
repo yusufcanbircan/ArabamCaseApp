@@ -369,10 +369,10 @@
 		BBE7E82D2A09185A007479D8 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				BBA9B5152A0BB6A400C8975B /* SummaryCell */,
-				BBA9B50E2A0B93BB00C8975B /* UserInfoCell */,
 				BBC013BC2A0A237300D21DBE /* PhotoCell */,
+				BBA9B50E2A0B93BB00C8975B /* UserInfoCell */,
 				BBC013BD2A0A238000D21DBE /* InfoCell */,
+				BBA9B5152A0BB6A400C8975B /* SummaryCell */,
 			);
 			path = Cells;
 			sourceTree = "<group>";

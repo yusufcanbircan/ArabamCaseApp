@@ -59,8 +59,6 @@ final class AdvertDetailViewController: UIViewController {
             return viewModel.createInformationSectionLayout()
         case .summary:
             return viewModel.createSummarySectionLayout()
-        case .none:
-            return viewModel.createSummarySectionLayout()
         }
     }
 
@@ -83,11 +81,9 @@ extension AdvertDetailViewController: UICollectionViewDelegate, UICollectionView
         case .userInformation:
             return configureUserInfoCell(indexPath: indexPath)
         case .information:
-            return UICollectionViewCell()
+            return configureInfoCell(indexPath: indexPath)
         case .summary:
-            return UICollectionViewCell()
-        case .none:
-            return UICollectionViewCell()
+            return configureSummaryCell(indexPath: indexPath)
         }
         
 //        let sectionType = viewModel.sections[indexPath.section]
@@ -173,6 +169,31 @@ extension AdvertDetailViewController {
         let cell = collectionView.dequeueReusableCell(withClass: UserInfoCollectionViewCell.self, for: indexPath)
         guard let advert = viewModel.getAdvertDetailUserInfo() else { return UICollectionViewCell() }
         let cellModel = UserInfoCollectionViewCellViewModel(advert: advert)
+        cell.configure(viewModel: cellModel)
+        return cell
+    }
+    
+    private func configureInfoCell(indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withClass: InfoCollectionViewCell.self, for: indexPath)
+        guard let property = viewModel.getAdvertProperty(for: indexPath.row) else { return UICollectionViewCell() }
+        let cellModel = InfoCollectionViewCellViewModel(property: property)
+        cell.configure(viewModel: cellModel)
+        return cell
+    }
+    
+    private func configureSummaryCell(indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withClass: SummaryCollectionViewCell.self, for: indexPath)
+        cell.setNeedsLayout()
+        cell.layoutIfNeeded()
+        
+        let size = cell.contentView.systemLayoutSizeFitting(CGSize(width: collectionView.bounds.width, height: UIView.layoutFittingCompressedSize.height))
+        
+        var cellFrame = cell.frame
+        cellFrame.size.height = size.height
+        cell.frame = cellFrame
+        
+        guard let summary = viewModel.getAdvertSummary() else { return UICollectionViewCell() }
+        let cellModel = SummaryCollectionViewCellViewModel(summary: summary)
         cell.configure(viewModel: cellModel)
         return cell
     }
