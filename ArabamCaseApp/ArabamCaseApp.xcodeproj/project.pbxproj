@@ -246,8 +246,8 @@
 			isa = PBXGroup;
 			children = (
 				BB79C8742A0E719C00946B25 /* LaunchScreen */,
-				BBE7E82C2A09184E007479D8 /* Detail */,
 				BBF675872A06510900639C11 /* Listing */,
+				BBE7E82C2A09184E007479D8 /* Detail */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";

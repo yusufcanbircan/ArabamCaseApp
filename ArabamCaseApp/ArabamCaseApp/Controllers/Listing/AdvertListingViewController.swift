@@ -7,10 +7,6 @@
 
 import UIKit
 
-protocol AdvertListingViewControllerProtocol: AnyObject {
-    func advertListing(view: AdvertListingViewController, didSelectedAdvert advert: AdvertDetailResponse)
-}
-
 final class AdvertListingViewController: UIViewController {
     
     @IBOutlet private weak var tableView: UITableView!
@@ -29,7 +25,6 @@ final class AdvertListingViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
     // MARK: - Private
@@ -87,8 +82,8 @@ extension AdvertListingViewController {
     private func configureListingCell(indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withClass: AdvertListingTableViewCell.self, for: indexPath)
         
-        guard let cellResponse = viewModel.getListingCellAdvert(for: indexPath.row) else { return UITableViewCell()}
-        let cellModel = AdvertListingTableViewCellViewModel(advertResponse: cellResponse)
+        guard let advertResponse = viewModel.getListingCellAdvert(for: indexPath.row) else { return UITableViewCell()}
+        let cellModel = AdvertListingTableViewCellViewModel(advertResponse: advertResponse)
         cell.configure(with: cellModel)
         return cell
     }
