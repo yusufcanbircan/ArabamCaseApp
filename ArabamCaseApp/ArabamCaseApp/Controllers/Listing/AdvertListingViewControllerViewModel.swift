@@ -29,8 +29,6 @@ final class AdvertListingViewControllerViewModel: NSObject {
     
     var isInitialValue: Bool = true
     var isLoadingMore: Bool = false
-    var sortingTypes = ["Fiyata Göre", "Tarihe Göre", "Yıla Göre"]
-    var sortingDirections = ["Artan", "Azalan"]
     
 }
 

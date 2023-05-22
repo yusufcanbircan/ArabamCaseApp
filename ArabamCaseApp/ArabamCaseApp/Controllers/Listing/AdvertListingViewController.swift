@@ -117,7 +117,7 @@ extension AdvertListingViewController: UIPickerViewDelegate, UIPickerViewDataSou
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        component == 0 ? viewModel.sortingTypes.count : viewModel.sortingDirections.count
+        component == 0 ? AdvertListingViewControllerViewModel.sortingType.names.count : AdvertListingViewControllerViewModel.sortingDirection.names.count
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {

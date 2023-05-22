@@ -13,8 +13,7 @@ protocol FullScreenViewDataSourceProtocol {
 }
 
 final class FullScreenViewControllerViewModel {
-//
-//    public var cellViewModels: [FullScreenPhotoCollectionViewCellViewModel] = []
+    
     private var photos: [String]?
 
     // MARK: - Init
